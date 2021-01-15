@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="magnet-favicon.png" type="image/x-icon"> 
     <script src="https://kit.fontawesome.com/a9e2599e63.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -63,6 +64,7 @@
 <section class="download-app">
         <p class="download-app-message">Download the App<br>and start using<br>the transportation<br>system of the future<br>right now!</p>
         <span><button class="button-download-app">Try Now</button><button class="button-download-app">Learn More</button></span>
+        <img class="arrow" src="arrow.png">
         
 </section>
 
@@ -135,7 +137,7 @@
    <section class="impact">
 
     <h3 class="impact-title">Let's save the planet... <br>We have the technology to reduce these numbers:</h3>
-    <span class="carbon-monoxide">100</span>
+    <span class="carbon-monoxide" id="carbon-monoxide">100</span>
     <span class="fine-particles">100</span>
     <span class="ammonia">100</span>
 
