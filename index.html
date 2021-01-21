@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="magnet-favicon.png" type="image/x-icon"> 
     <script src="https://kit.fontawesome.com/a9e2599e63.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -63,6 +64,7 @@
 <section class="download-app">
         <p class="download-app-message">Download the App<br>and start using<br>the transportation<br>system of the future<br>right now!</p>
         <span><button class="button-download-app">Try Now</button><button class="button-download-app">Learn More</button></span>
+        <img class="arrow" src="arrow.png">
         
 </section>
 
@@ -73,6 +75,13 @@
 
 <!-- <hr class="division-line"> -->
 
+<section class="how-works">
+    <h2 class="how-works-text">How it Works</h1>
+</section>
+
+<hr class="division-line">
+
+
 <section class="technology">
     <p class="technology-text">The technology behind</p>
     <p class="technology-subtext">Cutting edge technology paired with the best intentions for the environment. </p>
@@ -82,6 +91,7 @@
 
 <section>
     <div class = "news-container">
+        <div class="fake-container"></div>
        <div class="slides">
         <div class="slide"><a class="news-links" href="https://theconversation.com/four-ways-microbial-fuel-cells-might-revolutionise-electricity-production-in-the-future-152184" target='_blank'>
                <h1 class="news-title">Four ways microbial fuel cells might revolutionize electricity production in the future</h2>
@@ -127,7 +137,9 @@
                <i class="fas fa-chevron-right"></i>
            </button>
        </div>
+       
     </div>
+    
 </section>
 
    <hr class="division-line">
@@ -135,7 +147,7 @@
    <section class="impact">
 
     <h3 class="impact-title">Let's save the planet... <br>We have the technology to reduce these numbers:</h3>
-    <span class="carbon-monoxide">100</span>
+    <span class="carbon-monoxide" id="carbon-monoxide">-100</span>
     <span class="fine-particles">100</span>
     <span class="ammonia">100</span>
 
@@ -152,21 +164,29 @@
     <span class="pollutant-title ammonia-title">Ammonia</span>
 
     <p class="pollution-city">Pollution Levels for the City of Boston</p>
-    <p class="last-update"></p>
+    <p class="last-update">Pending</p> <!--The text comes from javascript-->
 </section>
 
 
 <hr class="division-line">
-
 
 <section class="prototypes">
 </section>
 
 <hr class="division-line">
 
+<section class="work-with-us">
+    <h3 class="work-with-us-title">Join the Team</h3>
+    <button class="button-learn-more">Learn More</button>
+</section>
+
+
+<hr class="division-line">
+
 <section class="subscribe-container">
-    <p class="subscribe-text">Susbscribe to our Newsletter: </p>
-    <input class="subscribe-input" placeholder="example@example.com">
+    <p class="subscribe-text">Susbscribe to our Newsletter:</p><br>
+    <input class="subscribe-input" placeholder="Please Enter your Email Address">
+    <button class="subscribe-button">Sign Up</button>
     </section>
 
     <hr class="division-line">
@@ -182,7 +202,7 @@
 </footer>
 
 <div class="disclaimer">
-    <p>Copyright &#169; 2021 Exortus Inc. All rights reserved.</p>
+    <p class="disclaimer">Copyright &#169; 2021 Exortus Inc. All rights reserved.</p>
 </div>
 
 <div class= "legal">
@@ -193,10 +213,13 @@
         <li> &#8214;</li>
         <li>Terms of Use</li>
         <li> &#8214;</li>
-        <li>Contact Us</li>
-        
+        <li>Careers</li>
+        <li> &#8214;</li>
+        <li>Contact Us</li>    
     </ul>
 </div>
+
+
 
 
 <script src = "scripts.js"></script>

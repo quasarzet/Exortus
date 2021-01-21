@@ -25,12 +25,12 @@ menuIcon.addEventListener('click', ()=>{
 
 //NEWS SLIDER--------------------------------------------
 const slideContainer = document.querySelector('.news-container');
-const slide = document.querySelector('.slides');
+var slide = document.querySelector('.slides');
 const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
 const interval = 8000;
 
-let slides = document.querySelectorAll('.slide');
+var slides = document.querySelectorAll('.slide');
 let index = 1;
 let slideId; 
 
@@ -43,10 +43,8 @@ lastClone.id = 'last-clone';
 slide.append(firstClone);
 slide.prepend(lastClone);
 
-
 window.addEventListener("resize", function(event) {
   var newWidth = document.body.clientWidth;
-  console.log(newWidth);
   slideWidth = newWidth;
   return moveToNextSlide();
 });
@@ -100,7 +98,7 @@ slideContainer.addEventListener('mouseleave', startSlide);
 
 nextBtn.addEventListener('click', moveToNextSlide);
 prevBtn.addEventListener('click', moveToPrevSlide);
-startSlide();
+setTimeout(startSlide, 4000);
 
 
 //IMPACT SECTION --------------------------------------------------//
@@ -110,20 +108,21 @@ const ammonia = document.querySelector('.ammonia');
 const lastUpdate = document.querySelector('.last-update');
 
 const addNewData = async() =>{
-    const results = await getNewData();
-    const carbonMonoxideOutput = results[0];
+    var results = await getNewData();
+    var carbonMonoxideOutput = results[0];
     const fineParticlesEmissionOutput = results[1];
     const ammoniaEmissionOutput = results[2];
     const updatedTime = results[3];
-    carbonMonoxide.innerHTML = Math.floor(carbonMonoxideOutput);
+    // carbonMonoxide.innerHTML = Math.floor(carbonMonoxideOutput);
     fineParticles.innerHTML = fineParticlesEmissionOutput;
     ammonia.innerHTML = ammoniaEmissionOutput;
     lastUpdate.innerHTML = updatedTime;
+    incrementNumber();
 }
 
 const getNewData = async() =>{
     try{
-        const response = await axios.get('https://api.openweathermap.org/data/2.5/air_pollution?lat=42&lon=-71&appid=53ead80b03f18d24c2addcee35ad45ae');
+        //const response = await axios.get('https://api.openweathermap.org/data/2.5/air_pollution?lat=42&lon=-71&appid=53ead80b03f18d24c2addcee35ad45ae');
         const carbonMonoxideEmission = response.data.list[0].components.co;
         const fineParticlesEmission = response.data.list[0].components.pm2_5;
         const ammoniaEmission = response.data.list[0].components.nh3;
@@ -134,14 +133,33 @@ const getNewData = async() =>{
         const localTimeDay = dateObject.toLocaleString("en-US", {weekday: "long"});
         const dateOfUpdate = `Last updated on ${localTimeDay} at ${localTimeHour}`;
         console.log(carbonMonoxideEmission, fineParticlesEmission, ammoniaEmission, dateOfUpdate);
+        
         return [carbonMonoxideEmission, fineParticlesEmission, ammoniaEmission, dateOfUpdate];
     }catch(e){
-        return "Updating..."
+        return [0,0,0];
     }
 }
 
-setTimeout(addNewData, 'onload');
-setInterval(addNewData, 600000);
+var speed = 10;
+async function incrementNumber(element){
+  var element = document.querySelector(".carbon-monoxide");
+  var newDataCarbon = await getNewData();
+  var finalNumber = newDataCarbon[0];
+  console.log(newDataCarbon[0]);
+  incrementNumberRecursive(0, finalNumber, element);
+}
+
+   function incrementNumberRecursive (i, finalNumber, element) {
+    if (i <= finalNumber) {
+       element.innerHTML = i;
+      setTimeout(function() {
+        incrementNumberRecursive(i + 1, finalNumber, element);
+      }, speed);
+    }
+  }
+
+// setTimeout(addNewData, 'onload');
+// setInterval(addNewData, 600000);
 
 
 //GSAP ANIMATIONS--------------------------------------------------------------------
@@ -156,5 +174,101 @@ gsap.from(".download-app-message", {x: -300, duration: 0.5});
 gsap.from(".button-download-app", {y: -200, duration: 0.5});
 
 
+//ARROW ANIMATION
+
+  // var arrow = gsap.to(".arrow", {y: 20, duration: 1.1, opacity: 1, repeat: 20});
 
 
+//GSAP SCROLL ANIMATIONS
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".arrow",{
+  scrollTrigger: {
+    trigger: ".arrow",
+    start:"bottom 60%",
+    end:"100px bottom bottom",
+    // markers: true,
+    toggleActions: "restart play play play",
+  },
+    opacity: 1,
+    y: 20,
+    duration: 1
+});
+
+gsap.from(".how-works",{
+  scrollTrigger: {
+    trigger: ".how works",
+    start:"20px top center",
+    toggleActions:"restart none none pause",
+    // markers: true
+  },
+  opacity: 0,
+  x: -400,
+  duration: 1
+});
+
+gsap.from(".technology",{
+  scrollTrigger: {
+    trigger: ".technology",
+    toggleActions:"restart none none pause",
+    // markers: true
+  },
+  opacity: 0,
+  x: 400,
+  duration: 1
+});
+
+gsap.from(".news-container",{
+  scrollTrigger: {
+    trigger: ".news-container",
+    start: "top center",
+    toggleActions:"restart none none pause"
+    
+  },
+  opacity: 0,
+  x: -400,
+  duration: 1
+});
+
+
+gsap.from(".impact",{
+  scrollTrigger: {
+    trigger: ".impact",
+    start: "top center",
+    toggleActions:"restart none none pause"
+    
+  },
+  opacity: 0,
+  x: 400,
+  duration: 1
+});
+
+ScrollTrigger.create({
+    trigger: ".impact",
+    start: "top center",
+    markers: true,
+    // toggleActions: "restart none none none",
+    onEnter: addNewData
+  });
+
+gsap.from(".prototypes",{
+  scrollTrigger: {
+    trigger:".prototypes",
+    start:"top center",
+    toggleActions:"restart none none pause"
+  },
+  opacity: 0,
+  x: -400,
+  duration: 1
+});
+
+gsap.from(".work-with-us",{
+  scrollTrigger: {
+    trigger:".work-with-us",
+    start:"top center",
+    toggleActions:"restart none none pause"
+  },
+  opacity: 0,
+  x: 400,
+  duration: 1
+});
