@@ -24,7 +24,7 @@ menuIcon.addEventListener('click', ()=>{
 
 
 //NEWS SLIDER--------------------------------------------
-const slideContainer = document.querySelector('.news-container');
+const slideContainer = document.querySelector('.news');
 var slide = document.querySelector('.slides');
 const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
@@ -207,9 +207,9 @@ gsap.from(".how-works",{
   duration: 1
 });
 
-gsap.from(".technology",{
+gsap.from(".innovations",{
   scrollTrigger: {
-    trigger: ".technology",
+    trigger: ".innovations",
     toggleActions:"restart none none pause",
     // markers: true
   },
@@ -246,7 +246,7 @@ gsap.from(".impact",{
 ScrollTrigger.create({
     trigger: ".impact",
     start: "top center",
-    markers: true,
+    // markers: true,
     // toggleActions: "restart none none none",
     onEnter: addNewData
   });
