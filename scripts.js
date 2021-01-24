@@ -109,20 +109,14 @@ const lastUpdate = document.querySelector('.last-update');
 
 const addNewData = async() =>{
     var results = await getNewData();
-    var carbonMonoxideOutput = results[0];
-    const fineParticlesEmissionOutput = results[1];
-    const ammoniaEmissionOutput = results[2];
     const updatedTime = results[3];
-    // carbonMonoxide.innerHTML = Math.floor(carbonMonoxideOutput);
-    fineParticles.innerHTML = fineParticlesEmissionOutput;
-    ammonia.innerHTML = ammoniaEmissionOutput;
     lastUpdate.innerHTML = updatedTime;
     incrementNumber();
 }
 
 const getNewData = async() =>{
     try{
-        //const response = await axios.get('https://api.openweathermap.org/data/2.5/air_pollution?lat=42&lon=-71&appid=53ead80b03f18d24c2addcee35ad45ae');
+        const response = await axios.get('https://api.openweathermap.org/data/2.5/air_pollution?lat=42&lon=-71&appid=53ead80b03f18d24c2addcee35ad45ae');
         const carbonMonoxideEmission = response.data.list[0].components.co;
         const fineParticlesEmission = response.data.list[0].components.pm2_5;
         const ammoniaEmission = response.data.list[0].components.nh3;
@@ -132,22 +126,31 @@ const getNewData = async() =>{
         const localTimeHour = dateObject.toLocaleString("en-US", {hour: "numeric"});
         const localTimeDay = dateObject.toLocaleString("en-US", {weekday: "long"});
         const dateOfUpdate = `Last updated on ${localTimeDay} at ${localTimeHour}`;
-        console.log(carbonMonoxideEmission, fineParticlesEmission, ammoniaEmission, dateOfUpdate);
-        
         return [carbonMonoxideEmission, fineParticlesEmission, ammoniaEmission, dateOfUpdate];
     }catch(e){
         return [0,0,0];
     }
 }
 
-var speed = 10;
-async function incrementNumber(element){
-  var element = document.querySelector(".carbon-monoxide");
-  var newDataCarbon = await getNewData();
-  var finalNumber = newDataCarbon[0];
-  console.log(newDataCarbon[0]);
-  incrementNumberRecursive(0, finalNumber, element);
+async function incrementNumber(){
+  const dataPollution = await getNewData();
+  const pollutionOutput = [carbonMonoxide, fineParticles, ammonia];
+  var polOutIndex = 0;
+  for (let i=0; i<pollutionOutput.length; i++){
+    var element = pollutionOutput[polOutIndex];
+    var finalNumber = dataPollution[polOutIndex];
+    if (finalNumber < 1){
+      incrementNumberRecursiveFloat(0, finalNumber, element);
+    }else{
+      incrementNumberRecursive(0, finalNumber, element);
+    }
+    polOutIndex++;
+  }
+  
 }
+
+var speed = 15;
+var speedFloat = 60;
 
    function incrementNumberRecursive (i, finalNumber, element) {
     if (i <= finalNumber) {
@@ -158,8 +161,14 @@ async function incrementNumber(element){
     }
   }
 
-// setTimeout(addNewData, 'onload');
-// setInterval(addNewData, 600000);
+  function incrementNumberRecursiveFloat(i, finalNumber, element) {
+    if ((Math.floor(i*100)) < (Math.floor(finalNumber*100))) {
+       element.innerHTML = i.toFixed(3);
+      setTimeout(function() {
+        incrementNumberRecursiveFloat(i + 0.01, finalNumber, element);
+      }, speedFloat);
+    }
+  }
 
 
 //GSAP ANIMATIONS--------------------------------------------------------------------
@@ -170,30 +179,28 @@ titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, font
 titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
 
 //LANDING IMAGE ANIMATION
-gsap.from(".download-app-message", {x: -300, duration: 0.5});
-gsap.from(".button-download-app", {y: -200, duration: 0.5});
+gsap.from(".landing-text", {x: -300, duration: 0.5});
+gsap.from(".button-landing", {y: -200, duration: 0.5});
 
 
 //ARROW ANIMATION
+var arrow = document.querySelector(".arrow");
 
-  // var arrow = gsap.to(".arrow", {y: 20, duration: 1.1, opacity: 1, repeat: 20});
-
+// STARTS THE ARROW ANIMATION
+function arrowAnimation(){
+  arrow.hidden = false;
+  gsap.to(".arrow", {y: 100, duration: 1.5, opacity: 1, repeat: -1});
+}
+arrowAnimation();
+ 
+// STOPS THE ARROW ANIMATION WHEN SCROLL IS DETECTED
+function stopArrow(){
+  arrow.hidden = true;
+}
+document.addEventListener('scroll', stopArrow);
 
 //GSAP SCROLL ANIMATIONS
 gsap.registerPlugin(ScrollTrigger);
-
-gsap.to(".arrow",{
-  scrollTrigger: {
-    trigger: ".arrow",
-    start:"bottom 60%",
-    end:"100px bottom bottom",
-    // markers: true,
-    toggleActions: "restart play play play",
-  },
-    opacity: 1,
-    y: 20,
-    duration: 1
-});
 
 gsap.from(".how-works",{
   scrollTrigger: {
@@ -218,12 +225,11 @@ gsap.from(".innovations",{
   duration: 1
 });
 
-gsap.from(".news-container",{
+gsap.from(".news",{
   scrollTrigger: {
-    trigger: ".news-container",
+    trigger: ".news",
     start: "top center",
     toggleActions:"restart none none pause"
-    
   },
   opacity: 0,
   x: -400,
@@ -236,7 +242,6 @@ gsap.from(".impact",{
     trigger: ".impact",
     start: "top center",
     toggleActions:"restart none none pause"
-    
   },
   opacity: 0,
   x: 400,

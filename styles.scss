@@ -227,6 +227,7 @@ body{
     height: 3px;
 }
 
+
 /* LANDING SECTION ----------------------------------------------------------------------------*/
 .landing{
     display: flex;
@@ -248,13 +249,12 @@ body{
     margin-right: 1em;
 }
 .arrow{
-    width: 4vw;
-    position: relative;
-    right: 50%;
+    width: 10vw;
+    position: absolute;
+    top: 70vh;
     left: 50%;
-  }
-  .arrow-hidden{
-    display: none;
+    transform: translate(-50%, -50%);
+
   }
 
 /*HOW IT WORKS SECTION---------------------------------------------------------------------------*/

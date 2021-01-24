@@ -287,14 +287,12 @@ body {
 }
 
 .arrow {
-  width: 4vw;
-  position: relative;
-  right: 50%;
+  width: 10vw;
+  position: absolute;
+  top: 70vh;
   left: 50%;
-}
-
-.arrow-hidden {
-  display: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /*HOW IT WORKS SECTION---------------------------------------------------------------------------*/
