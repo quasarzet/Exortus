@@ -1,5 +1,3 @@
-
-
 //SPLASH SCREEN ---------------------------------------
 // const splash = document.querySelector('.splash');
 // const fadeInQuote = document.querySelector('.fade-in-quote');
@@ -187,25 +185,26 @@ var titleTl = gsap.timeline();
 titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
 titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
 
+
 //LANDING IMAGE ANIMATION
 gsap.from(".landing-text", {x: -300, duration: 0.5});
 gsap.from(".button-landing", {y: -200, duration: 0.5});
 
+
 //ARROW ANIMATION
 var arrow = document.querySelector(".arrow");
-
 // STARTS THE ARROW ANIMATION
 function arrowAnimation(){
   arrow.hidden = false;
   gsap.to(".arrow", {y: 90, duration: 1.5, opacity: 1, repeat: -1});
 }
 arrowAnimation();
- 
 // STOPS THE ARROW ANIMATION WHEN SCROLL IS DETECTED
 function stopArrow(){
   arrow.hidden = true;
 }
 document.addEventListener('scroll', stopArrow);
+
 
 //GSAP SCROLL ANIMATIONS
 gsap.registerPlugin(ScrollTrigger);
@@ -214,8 +213,7 @@ gsap.from(".how-works",{
   scrollTrigger: {
     trigger: ".how works",
     start:"20px top center",
-    toggleActions:"restart none none pause",
-    // markers: true
+    toggleActions:"play none none pause",
   },
   opacity: 0,
   x: -400,
@@ -225,8 +223,8 @@ gsap.from(".how-works",{
 gsap.from(".innovations",{
   scrollTrigger: {
     trigger: ".innovations",
-    toggleActions:"restart none none pause",
-    // markers: true
+    start:"top center",
+    toggleActions:"play none none pause",
   },
   opacity: 0,
   x: 400,
@@ -237,19 +235,18 @@ gsap.from(".news",{
   scrollTrigger: {
     trigger: ".news",
     start: "top center",
-    toggleActions:"restart none none pause"
+    toggleActions:"play none none pause"
   },
   opacity: 0,
   x: -400,
   duration: 1
 });
 
-
 gsap.from(".impact",{
   scrollTrigger: {
     trigger: ".impact",
     start: "top center",
-    toggleActions:"restart none none pause"
+    toggleActions:"play none none pause"
   },
   opacity: 0,
   x: 400,
@@ -259,8 +256,6 @@ gsap.from(".impact",{
 ScrollTrigger.create({
     trigger: ".impact",
     start: "top center",
-    // markers: true,
-    // toggleActions: "restart none none none",
     onEnter: addNewData
   });
 
@@ -268,7 +263,7 @@ gsap.from(".prototypes",{
   scrollTrigger: {
     trigger:".prototypes",
     start:"top center",
-    toggleActions:"restart none none pause"
+    toggleActions:"play none none pause"
   },
   opacity: 0,
   x: -400,
@@ -279,7 +274,7 @@ gsap.from(".work-with-us",{
   scrollTrigger: {
     trigger:".work-with-us",
     start:"top center",
-    toggleActions:"restart none none pause"
+    toggleActions:"play none none pause"
   },
   opacity: 0,
   x: 400,

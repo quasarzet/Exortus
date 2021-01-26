@@ -32,11 +32,22 @@
 /*BUTTON STYLES------------------------------------------------------------------------*/
 .button-info {
   margin: 0 auto;
-  padding: 0.5em 1em;
+  padding: 0.7em 1.2em;
   border-radius: 20px;
   border-style: none;
-  background-color: #0092da;
+  background-color: #4D99AF;
   color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+          box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+}
+
+.button-info:active {
+  position: fixed;
+  background-color: #07484f;
+  -webkit-box-shadow: 0 2px #666;
+          box-shadow: 0 2px #666;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
 }
 
 .button-buttom {
@@ -151,6 +162,7 @@ body {
   height: 100vh;
   z-index: 2;
   margin: 0;
+  background-color: black;
 }
 
 .burger-menu {
@@ -282,14 +294,20 @@ body {
   text-align: left;
   color: white;
   bottom: -8vh;
-  font-size: 1.2em;
+  font-size: 1.4em;
   right: 25%;
   color: white;
 }
 
 .button-landing {
   position: relative;
-  bottom: -10vh;
+  bottom: -8vh;
+  margin-right: 1em;
+}
+
+.button-landing:active {
+  position: relative;
+  bottom: -8.3vh;
   margin-right: 1em;
 }
 
@@ -330,6 +348,7 @@ body {
           align-items: center;
   position: relative;
   background-image: url("TECHNOLOGY-mobile2.png");
+  background-size: 75vw 35vh;
   z-index: 0;
 }
 
@@ -646,7 +665,7 @@ body {
   color: white;
   text-align: center;
   line-height: 40px;
-  margin-top: -2%;
+  margin-top: -3vh;
 }
 
 .last-update {
@@ -659,7 +678,7 @@ body {
       grid-row-start: 3;
   color: white;
   text-align: center;
-  margin-top: 3vh;
+  margin-top: 1vh;
 }
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
