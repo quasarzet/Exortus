@@ -1,3 +1,5 @@
+
+
 //SPLASH SCREEN ---------------------------------------
 // const splash = document.querySelector('.splash');
 // const fadeInQuote = document.querySelector('.fade-in-quote');
@@ -100,6 +102,13 @@ nextBtn.addEventListener('click', moveToNextSlide);
 prevBtn.addEventListener('click', moveToPrevSlide);
 setTimeout(startSlide, 4000);
 
+//HAMMER MODULE FOR SWIPING
+//IT TARGETS NEWS AND LISTENS FOR SWIPING 
+var swipeElement = document.querySelector('.news');
+var swipeAction = new Hammer(swipeElement);
+swipeAction.on("swipeleft", moveToNextSlide);
+swipeAction.on("swiperight", moveToPrevSlide);
+
 
 //IMPACT SECTION --------------------------------------------------//
 const carbonMonoxide = document.querySelector('.carbon-monoxide');
@@ -182,14 +191,13 @@ titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", du
 gsap.from(".landing-text", {x: -300, duration: 0.5});
 gsap.from(".button-landing", {y: -200, duration: 0.5});
 
-
 //ARROW ANIMATION
 var arrow = document.querySelector(".arrow");
 
 // STARTS THE ARROW ANIMATION
 function arrowAnimation(){
   arrow.hidden = false;
-  gsap.to(".arrow", {y: 100, duration: 1.5, opacity: 1, repeat: -1});
+  gsap.to(".arrow", {y: 90, duration: 1.5, opacity: 1, repeat: -1});
 }
 arrowAnimation();
  
