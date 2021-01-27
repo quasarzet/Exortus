@@ -73,7 +73,7 @@ $colors:(
 
 /* FONT SIZES------------------------------------------------------------------------------*/
 $font-size:(
-    title: 1.6rem,
+    title: 1.8rem,
     sub-title: 1rem,
     text: 0.8rem,
     sub-text: 0.5rem
@@ -538,6 +538,12 @@ body{
 .prototype-image{
     width: 92vw;
 }
+.prototypes-title{
+    font-size: map-get($font-size, title);
+    color: white;
+    font-family: 'roboto condensed';
+    text-align: center;
+}
 
 /* WORK WITH US SECTION----------------------------------------------------------------------*/
 .work-with-us{
@@ -571,6 +577,10 @@ body{
     min-height: 3vh;
     margin-top: -10px;
     margin-bottom: 2vh;
+}
+.button-subscribe:active{
+    position: relative;
+    transform: translate(-0%, 3%);
 }
 
 /* FOOTER------------------------------------------------------------------------------------------*/
