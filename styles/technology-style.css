@@ -1,0 +1,61 @@
+body {
+  font-family: 'roboto condensed';
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.technology {
+  margin-top: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.technology-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 2vh;
+}
+
+.header-left {
+  position: absolute;
+  margin-left: -10vw;
+  width: 15vw;
+}
+
+.technology-title {
+  padding-top: 1vh;
+  text-align: center;
+  font-size: 1.5em;
+  vertical-align: center;
+}
+
+.technology-message {
+  text-align: center;
+  font-size: 1em;
+}
+
+.technology-author {
+  text-align: right;
+}
+
+.magnet-image {
+  width: 40vw;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=technology-style.css.map */

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.43 44.47">
+  <defs>
+    <style>
+      .a {
+        fill: #fff;
+      }
+
+      .a, .b {
+        fill-rule: evenodd;
+      }
+
+      .b {
+        fill: #4d99af;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="a" points="15.72 31.36 0.07 20.95 0.07 13.31 15.72 23.79 31.43 13.31 31.43 20.95 15.72 31.36"/>
+    <polygon class="a" points="0.07 7.58 0.07 0 15.72 10.41 31.43 0 31.43 7.58 15.72 18.05 0.07 7.58"/>
+    <polygon class="b" points="15.65 44.47 0 34.06 0 26.41 15.65 36.89 31.36 26.41 31.36 34.06 15.65 44.47"/>
+  </g>
+</svg>

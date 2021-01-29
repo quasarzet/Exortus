@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 421.06 836.13">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+        stroke: #07484f;
+        stroke-miterlimit: 10;
+        stroke-width: 16px;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect x="0.5" y="0.5" width="374" height="799"/>
+    <path d="M374,1V799H1V1H374m1-1H0V800H375V0Z"/>
+  </g>
+  <line class="a" x1="384.45" y1="641.05" x2="217.05" y2="808.45"/>
+  <line class="a" x1="415.4" y1="663.08" x2="248.01" y2="830.48"/>
+</svg>
