@@ -1,0 +1,73 @@
+body {
+  font-family: 'roboto condensed';
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.impact-page {
+  margin-top: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header-left {
+  position: absolute;
+  width: 15vw;
+}
+
+.impact-title {
+  padding-top: 3vh;
+  text-align: center;
+  font-size: 1.5em;
+  vertical-align: center;
+}
+
+.impact-subtitle {
+  text-align: center;
+  margin-top: 3vh;
+  margin-bottom: 0;
+}
+
+.impact-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.carbon-monoxide, .fine-particles, .ammonia {
+  font-size: 5em;
+}
+
+.unit-representation {
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.units {
+  margin-top: -4vh;
+  margin-bottom: 10vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.last-update {
+  color: white;
+}
+/*# sourceMappingURL=impact-style.css.map */

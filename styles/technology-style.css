@@ -30,11 +30,14 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-top: 2vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header-left {
   position: absolute;
-  margin-left: -10vw;
+  margin-left: -35vw;
   width: 15vw;
 }
 
@@ -50,12 +53,18 @@ body {
   font-size: 1em;
 }
 
-.technology-author {
+.technology-author p {
   text-align: right;
+  margin: 0;
+}
+
+.technology-author p:last-child {
+  margin-bottom: 2vh;
 }
 
 .magnet-image {
   width: 40vw;
   border-radius: 10px;
+  margin: 2vh auto;
 }
 /*# sourceMappingURL=technology-style.css.map */

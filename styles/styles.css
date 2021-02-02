@@ -29,6 +29,7 @@
   font-family: 'roboto condensed';
 }
 
+/* TITLE STYLES--------------------------------------------------------------------------------------------------------*/
 .title {
   font-family: 'roboto condensed';
   font-size: 1.8em;
@@ -133,7 +134,7 @@ body {
   text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 00px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
 }
 
-/*BURGER MENU WITH OVERLAY -----------------------------------------------------------------*/
+/* BURGER MENU WITH OVERLAY -----------------------------------------------------------------*/
 .overlay-container {
   width: 0;
   height: 0;
@@ -336,6 +337,7 @@ body {
   height: 0;
 }
 
+/* HOW IT STARTED SECTION------------------------------------------------------------------------------------*/
 .how-started {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -354,7 +356,7 @@ body {
   margin-top: 5vh;
 }
 
-/*HOW IT WORKS SECTION---------------------------------------------------------------------------*/
+/* HOW IT WORKS SECTION---------------------------------------------------------------------------*/
 .how-works {
   background-image: url("images/how-works.png");
   background-size: 90vw 30vh;
@@ -401,7 +403,7 @@ body {
   text-align: center;
 }
 
-/*NEWS SECTION--------------------------------------------------------------------------------*/
+/* NEWS SECTION--------------------------------------------------------------------------------*/
 .news {
   margin: 0 auto;
   width: 100vw;
@@ -509,7 +511,7 @@ body {
   border-color: 07484f;
 }
 
-/*IMPACT SECTION-------------------------------------------------------------------------------*/
+/* IMPACT SECTION-------------------------------------------------------------------------------*/
 .impact {
   display: -ms-grid;
   display: grid;

@@ -8,18 +8,16 @@ body{
     margin-top: 8vh;
     display: flex;
     flex-direction: column;
-    
 }
-
 .technology-header{
     display: flex;
     flex-direction: row;
     margin-top: 2vh;
-    
+    justify-content: center;  
 }
 .header-left{
     position: absolute;
-    margin-left: -10vw;
+    margin-left: -35vw;
     width: 15vw;
 }
 .technology-title{
@@ -28,18 +26,19 @@ body{
     font-size: 1.5em;
     vertical-align: center;
 }
-
 .technology-message{
     text-align: center;
     font-size: 1em;
 }
-
-.technology-author{
+.technology-author p{
     text-align: right;
-
+    margin:0;
 }
-
+.technology-author p:last-child{
+    margin-bottom: 2vh;
+}
 .magnet-image{
     width: 40vw;
     border-radius: 10px;
+    margin: 2vh auto;
 }

@@ -155,7 +155,6 @@ async function incrementNumber(){
     }
     polOutIndex++;
   }
-  
 }
 
 var speed = 15;
