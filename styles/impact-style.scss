@@ -45,3 +45,38 @@ body{
 .last-update{
     color: white;
 }
+
+
+
+.car-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.car-gas{
+  width: 30%;
+  height: 30%;
+}
+
+.pollution-text{
+    text-align: center;
+}
+.tires-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.tires{
+    width: 25%;
+}
+.brakes-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.brakes{
+    width: 25%;
+}

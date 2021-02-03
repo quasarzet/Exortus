@@ -1,0 +1,364 @@
+@font-face {
+  font-family: andromeda;
+  src: url(fonts/Andromeda.ttf);
+}
+
+@font-face {
+  font-family: 'roboto condensed';
+  src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+
+/* MAIN COLORS FOR THE WEBSITE---------------------------------------------------------------*/
+/* FONT SIZES------------------------------------------------------------------------------*/
+/* DIVISION LINE---------------------------------------------------------------------------*/
+.division-line {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-style: none;
+  background-color: #4D99AF;
+  width: 90vw;
+  height: 3px;
+}
+
+html, body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100vw;
+  min-width: 320px;
+  margin: 0;
+  background-color: black;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+/* HIDES THE REST OF THE CONTENT WHILE THE BURGER MENU IS OPEN --------------------------------*/
+.body-scroll-hide {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
+
+/* HEADER--------------------------------------------------------------------------------------*/
+.header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  width: 100vw;
+  position: fixed;
+  height: 7vh;
+  top: 0;
+  background-color: black;
+  opacity: 0.95;
+  z-index: 2;
+}
+
+#header-title {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  margin-top: 2vh;
+  font-size: 1.5em;
+  color: white;
+  font-family: andromeda;
+  opacity: 0;
+  text-align: center;
+  text-shadow: 0 0 0 #FFFFFF, 0 0 0 #FFFFFF, 0 0 0 #FFFFFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF;
+}
+
+#header-title.blueGlow {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 00px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+}
+
+/* BURGER MENU WITH OVERLAY -----------------------------------------------------------------*/
+.overlay-container {
+  width: 0;
+  height: 0;
+  background: black;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: -80vh;
+  -webkit-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+  color: white;
+  overflow-x: hidden;
+  z-index: 2;
+  margin: 0;
+}
+
+.overlay-change {
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  margin: 0;
+  background-image: url("images/overlay-background.svg");
+  background-size: 115vw 110vh;
+}
+
+.burger-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 1.8em;
+  height: 1.8em;
+  position: fixed;
+  top: 2vh;
+  left: 3vw;
+  cursor: pointer;
+}
+
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #4D99AF;
+  -webkit-transition: all .8s;
+  transition: all .8s;
+}
+
+.overlay-change .line-1 {
+  -webkit-transform: rotateZ(-405deg) translate(-8px, 6px);
+          transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+
+.overlay-change .line-2 {
+  opacity: 0;
+}
+
+.overlay-change .line-3 {
+  -webkit-transform: rotateZ(405deg) translate(-8px, -6px);
+          transform: rotateZ(405deg) translate(-8px, -6px);
+}
+
+.nav-list {
+  text-align: center;
+  padding: 0;
+}
+
+.nav-item {
+  list-style: none;
+  margin: 25px 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.7em;
+  color: white;
+  font-family: 'roboto condensed';
+  text-align: center;
+  position: relative;
+}
+
+.nav-link::before,
+.nav-link::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #4D99AF;
+  position: absolute;
+  left: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.nav-link::before {
+  top: 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.nav-link::after {
+  bottom: 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.title {
+  margin-top: 10vh;
+  color: white;
+  font-family: 'roboto condensed';
+  font-size: 2em;
+  text-align: center;
+}
+
+.form-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 90vw;
+  background-color: #144249;
+  border-radius: 5px;
+  color: white;
+  font-family: 'roboto condensed';
+  padding: 5vw;
+}
+
+.registration-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+input {
+  display: block;
+  border-style: hidden none solid none;
+  border-color: white;
+  background-color: transparent;
+  width: 80vw;
+  margin-bottom: 4vh;
+}
+
+input, textarea, select {
+  color: white;
+  font-size: 1.1em;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+  padding: 1vh;
+  font-size: 1.1em;
+}
+
+input:-ms-input-placeholder {
+  color: white;
+  padding: 1vh;
+  font-size: 1.1em;
+}
+
+input::-ms-input-placeholder {
+  color: white;
+  padding: 1vh;
+  font-size: 1.1em;
+}
+
+input::placeholder {
+  color: white;
+  padding: 1vh;
+  font-size: 1.1em;
+}
+
+hr {
+  margin-bottom: 5vh;
+  width: 20vw;
+}
+
+input[type=checkbox] {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2vw;
+}
+
+.optional-news {
+  font-size: 1.2em;
+}
+
+.submit-button {
+  margin: 0 auto;
+  padding: 1vh 5vw;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* FOOTER------------------------------------------------------------------------------------------*/
+.social-buttons li {
+  list-style: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0px 30px 0px 0px;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.disclaimer {
+  color: gray;
+  font-family: "roboto condensed";
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 0;
+}
+
+.legal-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+
+.legal-items li {
+  list-style: none;
+  color: gray;
+  font-family: "roboto condensed";
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0.5vw;
+  margin: 0;
+}
+/*# sourceMappingURL=register-style.css.map */
