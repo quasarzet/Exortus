@@ -293,7 +293,7 @@ input::placeholder {
   font-size: 1.1em;
 }
 
-hr {
+.form-division {
   margin-bottom: 5vh;
   width: 20vw;
 }
@@ -323,7 +323,7 @@ input[type=checkbox] {
 button {
   padding: 1vh 6vw;
   background-color: white;
-  color: black;
+  color: #383838;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -373,4 +373,4 @@ button {
   padding: 0.5vw;
   margin: 0;
 }
-/*# sourceMappingURL=register-style.css.map */
+/*# sourceMappingURL=work-style.css.map */

@@ -9,17 +9,44 @@
 }
 
 /* MAIN COLORS FOR THE WEBSITE---------------------------------------------------------------*/
-/* FONT SIZES------------------------------------------------------------------------------*/
-/* DIVISION LINE---------------------------------------------------------------------------*/
-.division-line {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-  border-style: none;
-  background-color: #4D99AF;
-  width: 90vw;
-  height: 3px;
+.main-title {
+  font-family: 'roboto condensed';
+  font-size: 1.8em;
+  color: white;
+  text-align: center;
+  margin-top: 10vh;
 }
 
+/*BUTTON STYLES------------------------------------------------------------------------*/
+.button-info {
+  margin: 0 auto;
+  padding: 0.7em 1.2em;
+  border-radius: 20px;
+  border-style: none;
+  background-color: #4D99AF;
+  color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+          box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+}
+
+.button-info:active {
+  position: fixed;
+  background-color: #07484f;
+  -webkit-box-shadow: 0 2px #666;
+          box-shadow: 0 2px #666;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
+}
+
+.button-buttom {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/* FONT SIZES------------------------------------------------------------------------------*/
 html, body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -220,112 +247,143 @@ body {
           transform: scaleX(1);
 }
 
-.title {
-  margin-top: 10vh;
-  color: white;
-  font-family: 'roboto condensed';
-  font-size: 2em;
+.text-center {
   text-align: center;
-}
-
-.form-container {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 90vw;
-  background: radial-gradient(circle, #074142 0%, #387375 100%);
-  border-radius: 5px;
   color: white;
   font-family: 'roboto condensed';
-  padding: 5vw;
+  font-size: 1.2em;
 }
 
-.registration-form {
+.arrows-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 2vh 0;
+}
+
+.arrow-info {
+  width: 10vw;
+  margin: 0 2vw;
+}
+
+.guides-svg {
+  width: 50vw;
+}
+
+.car-svg {
+  width: 50vw;
+}
+
+.arrow-horizontal-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.arrow-horizontal {
+  width: 80vw;
+  text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.panel.show {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  background-color: #1d353b;
+  max-width: 69vw;
+  border-radius: 5px;
+  font-family: 'roboto condensed';
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 2vh;
+  text-align: left;
+  padding: 3vh 5vw;
+}
+
+.panel {
+  display: none;
+}
+
+/* DIVISION LINE---------------------------------------------------------------------------*/
+.division-line {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-style: none;
+  background-color: #4D99AF;
+  width: 90vw;
+  height: 3px;
+}
+
+/* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
+.subscribe-container {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin: 0;
 }
 
-input {
-  display: block;
-  border-style: hidden none solid none;
-  border-color: white;
-  background-color: transparent;
-  width: 80vw;
-  margin-bottom: 4vh;
+.subscribe-text {
+  margin: 0;
+  text-align: left;
+  font-family: 'roboto condensed';
 }
 
-input, textarea, select {
-  color: white;
-  font-size: 1.1em;
+.subscribe-input {
+  font-size: 0.9em;
+  text-align: center;
+  min-width: 60vw;
+  min-height: 3vh;
+  margin-top: -10px;
+  margin-bottom: 2vh;
 }
 
-input::-webkit-input-placeholder {
-  color: white;
-  padding: 1vh;
-  font-size: 1.1em;
+.button-subscribe:active {
+  position: relative;
+  -webkit-transform: translate(0%, 3%);
+          transform: translate(0%, 3%);
 }
 
-input:-ms-input-placeholder {
-  color: white;
-  padding: 1vh;
-  font-size: 1.1em;
-}
-
-input::-ms-input-placeholder {
-  color: white;
-  padding: 1vh;
-  font-size: 1.1em;
-}
-
-input::placeholder {
-  color: white;
-  padding: 1vh;
-  font-size: 1.1em;
-}
-
-hr {
-  margin-bottom: 5vh;
-  width: 20vw;
-}
-
-input[type=checkbox] {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-left: 0;
-  margin-right: 2vw;
-  vertical-align: sub;
-}
-
-.optional-news {
-  font-size: 1.1em;
-}
-
-.submit-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-button {
-  padding: 1vh 6vw;
+#snackbar {
+  visibility: hidden;
+  position: fixed;
+  z-index: 3;
+  padding: 2vh;
+  margin-left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  bottom: 2vh;
+  min-width: 40vw;
   background-color: white;
   color: black;
-  font-size: 1.2em;
-  text-transform: uppercase;
+  font-family: 'roboto condensed';
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+          animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 /* FOOTER------------------------------------------------------------------------------------------*/
@@ -373,4 +431,4 @@ button {
   padding: 0.5vw;
   margin: 0;
 }
-/*# sourceMappingURL=register-style.css.map */
+/*# sourceMappingURL=innovations-style.css.map */
