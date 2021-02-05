@@ -1,17 +1,3 @@
-//SPLASH SCREEN ---------------------------------------
-// const splash = document.querySelector('.splash');
-// const fadeInQuote = document.querySelector('.fade-in-quote');
-// const fadeInAuthor = document.querySelector('.fade-in-author');
-
-// document.addEventListener('DOMContentLoaded', (e) =>{
-//     setTimeout(() =>{
-//         fadeInQuote.classList.add('display-none');
-//         fadeInAuthor.classList.add('display-none');
-//         splash.classList.add('display-none');
-//     }, 5000);
-// })
-
-
 //BURGER MENU AND OVERLAY------------------------------------------------------
 const menuIcon = document.querySelector('.burger-menu');
 const navbar = document.querySelector('.navbar');

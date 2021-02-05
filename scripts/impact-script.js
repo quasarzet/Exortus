@@ -1,3 +1,71 @@
+gsap.registerPlugin(TextPlugin);
+
+// SPLASH SCREEN -----------------------------------------------------------
+const splash = document.querySelector('.splash');
+const quote1 = document.querySelector('.quote1');
+const quote2 = document.querySelector('.quote2');
+const quote3 = document.querySelector('.quote3');
+const textTimeline = gsap.timeline();
+
+textTimeline
+.to(quote1, {duration: 1,
+  opacity: 1,
+  text: {value: "The future will be ", delimiter:" "}, 
+  ease: "none"
+})
+.to(quote2, {duration: 1.5,
+  opacity: 1,
+  text: {value: "green.", newClass: "green", delimiter:""}, 
+  ease: "none"
+})
+.to(quote3, {duration: 1.2,
+  delay: 1,
+  opacity: 1,
+  text: {value: "With or without us as part of it.", delimiter:" "}, 
+  ease: "none"
+})
+.to(quote1, {duration: 0.5, 
+  delay: 0.5,
+  opacity: 0,
+  ease: "none"
+})
+.to(quote2, {duration: 0.5,
+  opacity: 0,
+  ease: "none"
+})
+.to(quote3, {duration: 0.5,
+  opacity: 0,
+  ease: "none"
+})
+.to(".arrow", {duration: 0.5,
+  delay: 0.3,
+  x: 600, 
+  ease: "none"
+})
+.to(".splash", {duration: 1,
+  opacity: 0,
+  display: "none", 
+  ease: "none"
+});
+// BLOCKS THE SCROLLING IN THE PAGE
+document.addEventListener('DOMContentLoaded', ()=>{
+  bodyHide.classList.add('body-scroll-hide');
+});
+// REMOVES THE CLASS THAT DISABLES SCROLLING IN THE PAGE
+document.addEventListener('DOMContentLoaded', () =>{
+  setTimeout(() =>{
+      bodyHide.classList.remove('body-scroll-hide');
+  }, 9000);
+})
+
+
+//HEADER GLOW--------------------------------------------------------------
+const splashDelay = 8;
+var titleTl = gsap.timeline();
+titleTl.to("#header-title", {className: "+=blueGlow", delay: splashDelay, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
+titleTl.to("#header-title", {fontSize: "2em", letterSpacing: "1px", duration: 0.3});
+
+
 //BURGER MENU AND OVERLAY------------------------------------------------------
 const menuIcon = document.querySelector('.burger-menu');
 const navbar = document.querySelector('.navbar');
@@ -9,14 +77,7 @@ menuIcon.addEventListener('click', ()=>{
 })
 
 
-//GSAP ANIMATIONS--------------------------------------------------------------------
-
-//HEADER GLOW
-var titleTl = gsap.timeline();
-titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
-titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
-
-
+//IMPACT -------------------------------------------------------------------------
 // CONTACTS THE ENVIRONMENT API AND WRITES THE RESULTS
 const carbonMonoxide = document.querySelector('.carbon-monoxide');
 const fineParticles = document.querySelector('.fine-particles');
@@ -84,5 +145,5 @@ var speedFloat = 60;
       }, speedFloat);
     }
   }
-
-addNewData();
+//CALLS THE FUNCTION AFTER THE ANIMATION HAS FINISHED
+setTimeout(addNewData, 10000);

@@ -99,6 +99,50 @@ $font-size:(
     text-align: center;
 }
 
+/*SPLASH SCREEN------------------------------------------------------------------------------*/
+.splash{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 8vw;
+    background-color: black;
+    z-index: 5;
+}
+.quote-container{
+    width: 60vw;
+    height: 50vh;
+    color: white;
+    font-family: 'roboto condensed';
+    font-size: 3.5em;
+    text-align: left;
+    z-index: 7;
+}
+.quote{
+    display: inline-block;
+    opacity: 0;
+    
+}
+.green{
+    color: green;
+    font-family: 'roboto condensed';
+    font-size: 3.5rem;
+    text-align: left;
+    text-transform: uppercase;
+
+}
+.arrow{
+    position:absolute;
+    transform: translate(-300vw);
+    width: 250vw;
+}
+.display-none{
+    display: none;
+}
+
 html,body{
     box-sizing: border-box;
     width: 100vw;
