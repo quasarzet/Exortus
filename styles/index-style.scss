@@ -45,7 +45,7 @@ $colors:(
     font-size: 1.8em;
     color: white;
     text-align: center;
-    margin-top: 3vh;
+    margin: 0;
 }
 .title{
     @include title;
@@ -83,6 +83,14 @@ $colors:(
     @include button-buttom-style;
 }
 
+/*TEXT STYLES------------------------------------------------------------------------------*/
+.text{
+    color: white;
+    font-family: 'roboto condensed';
+    font-size: 1.2em;
+    text-align: center;
+}
+
 /* FONT SIZES------------------------------------------------------------------------------*/
 $font-size:(
     title: 1.8rem,
@@ -90,14 +98,6 @@ $font-size:(
     text: 0.8rem,
     sub-text: 0.5rem
 );
-
-/*TEXT STYLES-------------------------------------------------------------------------------*/
-.text{
-    color:white;
-    font-family: 'roboto condensed';
-    font-size: 1.2em;
-    text-align: center;
-}
 
 html,body{
     box-sizing: border-box;
@@ -113,8 +113,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 8vw;
-    padding-right: 8vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     
 }
 /* HIDES THE REST OF THE CONTENT WHILE THE BURGER MENU IS OPEN --------------------------------*/
@@ -143,14 +143,12 @@ body{
     font-size: 1.5em;
     color: map-get($colors, text);;
     font-family: andromeda;
-    opacity: 0;
+    font-size: 2em;
     text-align: center;
-    text-shadow: 0 0 0 #FFFFFF, 0 0 0 #FFFFFF, 0 0 0 #FFFFFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF, 0 0 0 #228DFF;
-}
-  #header-title.blueGlow{
-    color:#FFFFFF;
+    color: white;
     text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 00px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
 }
+
 
 /* BURGER MENU WITH OVERLAY -----------------------------------------------------------------*/
 .overlay-container{
@@ -249,99 +247,349 @@ body{
     transform: scaleX(1); 
 }
   
-/* DIVISION LINE FOR TITLES---------------------------------------------------------------------*/
-.division-line-title{
-    margin-top: 10vh;
-    margin-bottom: 2vh;
-    border-style: none;
-    background-color: map-get($colors, primary);
-    width: 80vw;
-    height: 3px;
-}
-
 /* DIVISION LINE---------------------------------------------------------------------------*/
 .division-line{
     margin-top: 2vh;
     margin-bottom: 2vh;
     border-style: none;
     background-color: map-get($colors, primary);
-    width: 80vw;
+    width: 90vw;
     height: 3px;
 }
 
-.impact-subtitle{
-    text-align: center;
-    margin-top: 3vh;
-    margin-bottom: 0;
-    color: white;
-    font-family: 'roboto condensed';
-    font-size: 2.2em;
-}
-.impact-container{
+/* LANDING SECTION ----------------------------------------------------------------------------*/
+.landing{
     display: flex;
     flex-direction: column;
-    color: white;
-    font-family: 'roboto condensed';
+    justify-content: space-evenly;
+    margin-top: 7vh;
+    background-image: url('images/landing.png');
     align-items: center;
 }
+.landing-text{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    color: map-get($colors, text);
+    bottom: -8vh;
+    font-size: 1.4em;
+    right: 25%;
+    color: white;
+}
+.button-landing{
+    position: relative;
+    bottom: -8vh;
+    margin-right: 1em;
+}
+.button-landing:active{
+    position: relative;
+    bottom: -8.3vh;
+    margin-right: 1em;
+}
+.arrow{
+    width: 10vw;
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+  }
+.arrow-invisible{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
 
-.carbon-monoxide, .fine-particles, .ammonia{
-    font-size: 5em;
+/* HOW IT STARTED SECTION------------------------------------------------------------------------------------*/
+.how-started{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+}
+.svg-how-started{
+    width: 50vw;
+    margin-top: 5vh;
+}
+
+/* HOW IT WORKS SECTION---------------------------------------------------------------------------*/
+.how-works{
+    background-image: url('images/how-works.png');
+    background-size: 90vw 30vh;
+    color: map-get($colors, text);
+    text-align: center;
+}
+.how-works-text{
+    font-size: map-get($font-size, title);
+    margin: 0;
+    color: map-get($colors, text);
+}
+
+/* INNOVATIONS SECTION-----------------------------------------------------------------------------*/
+.innovations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-image: url('images/innovations.png');
+    background-size: 75vw 35vh;
+    z-index: 0;  
+}
+.innovations-title{
+    font-size: map-get($font-size, title);
+    color: map-get($colors, text);
+    text-align: center;
+    margin: 0;
+}
+.innovations-subtitle{
+    position: relative;
+    top: 11vh;
     color: white;
     font-family: 'roboto condensed';
-
-}
-.unit-representation{
     text-align: center;
-    margin-top: 2vh;
+}
+
+/* NEWS SECTION--------------------------------------------------------------------------------*/
+.news{
+    margin: 0 auto;
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    background-color: map-get($colors, background);
+    font-family: 'roboto condensed';
+    color: map-get($colors, text);
+    text-overflow: clip;
+}
+.slide{
+    min-width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+.slides{
+    display: flex;
+    height: 100%;
+    margin: 0 auto; 
+    min-width: 100%;
+}
+.news-links{
+    text-decoration: inherit;
+    color: inherit;
+}
+.news h1, p{
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.news-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30%;
+    font-size: 1.4em;
+}
+.date, .news-author{
+    margin: 0;
+    padding-left: 3rem;
+    color: lightgray;
+}
+.news-text{
+    height: 40%;
+    text-overflow: ellipsis;
+}
+.slide-controls{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#next-btn, #prev-btn{
+    cursor: pointer;
+    background: transparent;
+    font-size: 30px;
+    border: none;
+    padding: 15px;
+    color: map-get($colors, text);
+}
+#next-btn:focus, #prev-btn:focus{
+     outline: none;
+}
+.fake-container{
+    position: absolute;
+    background-color: transparent;
+    width: 94vw;
+    height: 49vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border-style: solid;
+    border-width: 4px;
+    border-color: 07484f;
+}
+
+/* IMPACT SECTION-------------------------------------------------------------------------------*/
+.impact{
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
+    grid-template-rows: 28% 50% 20%;
+    overflow: hidden;
+}
+.impact-title{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    color: map-get($colors, text);
+    font-size: map-get($font-size, subtitle);
+    margin: 0;
+    text-align: center; 
+}
+.impact-subtitle{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    margin-top: 6vh;
+    padding: 0;
+    color: map-get($colors, text);
+    font-size: map-get($font-size, subtitle);
+    text-align: left;
+}
+.carbon-monoxide, .fine-particles, .ammonia{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+.carbon-monoxide{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:2;
+}
+.fine-particles{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:2;
+}
+.ammonia{
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start:2;
+}
+.unit-representationCM{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 5vh;
+    color: gray;
+}
+.unit-representationFP{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 5vh;
+    color: gray;
+}
+.unit-representationAM{
+    grid-column-start: 5;
+    grid-row-start: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 5vh;
+    color: gray;
 }
 .units{
-    margin-top: -5vh;
-    margin-bottom: 10vh;
-}
-.units:last-child{
-    margin-top: -5vh;
-    margin-bottom: 6vh;
-}
-.text-center{
+    color: gray;
+    font-size: 0.7em;
     text-align: center;
+    margin-top: 10vh;
+}
+.unit1{
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.unit2{
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+.unit3{
+    grid-column-start: 5;
+    grid-row-start: 2;
+}
+.pollutant-title{
+    color: map-get($colors, text);
+    text-align: center;
+    margin-top: -2vh;
+}
+.carbon-monoxide-title{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    position: relative;
+    top: 7vh;
+}
+.fine-particles-title{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    position: relative;
+    top: 7vh;
+}
+.ammonia-title{
+    grid-column-start: 5;
+    grid-row-start: 2;
+    position: relative;
+    top: 7vh;
+}
+.pollution-city{
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    padding: 0;
+    color:map-get($colors, text);
+    text-align: center;
+    line-height: 40px;
+    margin-top: -3vh;
 }
 .last-update{
-    color: white;
-    margin-bottom: 2vh;
-}
-.car-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-    margin-top: 2vh;
-}
-.car-gas{
-  width: 30%;
-  height: 30%;
+    box-sizing: border-box;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    color:map-get($colors, text);
+    text-align: center;
+    margin-top: 1vh;
 }
 
-.pollution-text{
+/* PROTOTYPES SECTION-----------------------------------------------------------------------*/
+.prototypes{
+    background-image: url('images/prototypes.png');
+}
+.prototype-image{
+    width: 92vw;
+}
+.prototypes-title{
+    font-size: map-get($font-size, title);
+    color: white;
+    font-family: 'roboto condensed';
     text-align: center;
 }
-.tires-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
+
+/* WORK WITH US SECTION----------------------------------------------------------------------*/
+.work-with-us{
+    background-image: url('images/work-with-us.png');
 }
-.tires{
-    width: 25%;
-}
-.brakes-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-}
-.brakes{
-    width: 25%;
+.work-with-us-title{
+    color: map-get($colors, text);
+    text-align: center;
+    font-family: 'roboto condensed';
+    font-size: map-get($font-size, title);
+    margin: 0;
 }
 
 /* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
@@ -395,35 +643,31 @@ body{
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
-}
-  
+} 
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
-  
  @-webkit-keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
-  
  @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
-
 /* FOOTER------------------------------------------------------------------------------------------*/
 .social-buttons li{
     list-style: none;
     display: inline-flex;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 30px 0px 0px;
     color: white;
     align-items: center;
 }
 .disclaimer{
     color: map-get($colors, sub-text);
     font-family: "roboto condensed";
-    font-size: 1em;
+    font-size: 0.8rem;
     text-align: center;
     margin: 0;
 }
@@ -440,6 +684,7 @@ body{
     font-family: "roboto condensed";
     font-size: 0.8em;
     text-align: center;
-    padding: 0.3vw;
+    padding: 0.5vw;
     margin: 0;
 }
+

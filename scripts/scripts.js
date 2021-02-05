@@ -130,7 +130,7 @@ const getNewData = async() =>{
         const fineParticlesEmission = response.data.list[0].components.pm2_5;
         const ammoniaEmission = response.data.list[0].components.nh3;
         const timeOfUpdate = response.data.list[0].dt;
-        const dateInMilliseconds = (1000 * timeOfUpdate);
+        const dateInMilliseconds = ((1000 * timeOfUpdate)-3600000);
         const dateObject = new Date(dateInMilliseconds);
         const localTimeHour = dateObject.toLocaleString("en-US", {hour: "numeric"});
         const localTimeDay = dateObject.toLocaleString("en-US", {weekday: "long"});
@@ -182,14 +182,14 @@ var speedFloat = 60;
 //GSAP ANIMATIONS--------------------------------------------------------------------
 
 //HEADER GLOW
-var titleTl = gsap.timeline();
-titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
-titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
+// var titleTl = gsap.timeline();
+// titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
+// titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
 
 
 //LANDING IMAGE ANIMATION
-gsap.from(".landing-text", {x: -300, duration: 0.5});
-gsap.from(".button-landing", {y: -200, duration: 0.5});
+// gsap.from(".landing-text", {x: -300, duration: 0.5});
+// gsap.from(".button-landing", {y: -200, duration: 0.5});
 
 
 //ARROW ANIMATION
@@ -197,7 +197,7 @@ var arrow = document.querySelector(".arrow");
 // STARTS THE ARROW ANIMATION
 function arrowAnimation(){
   arrow.classList.add("arrow");
-  gsap.to(".arrow", {y: 90, duration: 1.5, opacity: 1, repeat: -1});
+  gsap.to(".arrow", {y: 70, duration: 1.5, opacity: 1, repeat: -1});
 }
 arrowAnimation();
 // STOPS THE ARROW ANIMATION WHEN SCROLL IS DETECTED

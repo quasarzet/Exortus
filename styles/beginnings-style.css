@@ -296,36 +296,6 @@ body {
   height: 3px;
 }
 
-.technology-message {
-  text-align: center;
-  font-size: 1.3em;
-  color: white;
-  font-family: 'roboto condensed';
-  font-style: italic;
-}
-
-.technology-author {
-  margin-left: 40vw;
-}
-
-.technology-author p {
-  text-align: right;
-  margin: 0;
-  font-size: 1.3em;
-  font-family: 'roboto condensed';
-  color: white;
-}
-
-.technology-author p:last-child {
-  margin-bottom: 2vh;
-}
-
-.magnet-image {
-  width: 40vw;
-  border-radius: 10px;
-  margin: 2vh auto;
-}
-
 /* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
 .subscribe-container {
   color: white;
@@ -478,4 +448,4 @@ body {
   padding: 0.3vw;
   margin: 0;
 }
-/*# sourceMappingURL=technology-style.css.map */
+/*# sourceMappingURL=beginnings-style.css.map */

@@ -22,7 +22,7 @@ const images = document.querySelectorAll('.single-image');
 // SLIDE FUNCTION FOR ANIMATION
 function displayBigImage(image){
     var imageSource = image.path[0].src;
-    if(imageSource.charAt(imageSource.length -6) === "/"){
+    if(imageSource.charAt(imageSource.length -6) === "-"){
         var imageIndex = (imageSource.slice(-5,-4)-1);
     }else{
         var imageIndex = (imageSource.slice(-6,-4)-1);

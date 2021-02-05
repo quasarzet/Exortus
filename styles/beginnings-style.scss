@@ -269,81 +269,6 @@ body{
     height: 3px;
 }
 
-.impact-subtitle{
-    text-align: center;
-    margin-top: 3vh;
-    margin-bottom: 0;
-    color: white;
-    font-family: 'roboto condensed';
-    font-size: 2.2em;
-}
-.impact-container{
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family: 'roboto condensed';
-    align-items: center;
-}
-
-.carbon-monoxide, .fine-particles, .ammonia{
-    font-size: 5em;
-    color: white;
-    font-family: 'roboto condensed';
-
-}
-.unit-representation{
-    text-align: center;
-    margin-top: 2vh;
-}
-.units{
-    margin-top: -5vh;
-    margin-bottom: 10vh;
-}
-.units:last-child{
-    margin-top: -5vh;
-    margin-bottom: 6vh;
-}
-.text-center{
-    text-align: center;
-}
-.last-update{
-    color: white;
-    margin-bottom: 2vh;
-}
-.car-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-    margin-top: 2vh;
-}
-.car-gas{
-  width: 30%;
-  height: 30%;
-}
-
-.pollution-text{
-    text-align: center;
-}
-.tires-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-}
-.tires{
-    width: 25%;
-}
-.brakes-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-}
-.brakes{
-    width: 25%;
-}
-
 /* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
 .subscribe-container{
     color:white;
@@ -411,7 +336,6 @@ body{
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
-
 /* FOOTER------------------------------------------------------------------------------------------*/
 .social-buttons li{
     list-style: none;

@@ -9,15 +9,71 @@
 }
 
 /* MAIN COLORS FOR THE WEBSITE---------------------------------------------------------------*/
-/* FONT SIZES------------------------------------------------------------------------------*/
-/* DIVISION LINE---------------------------------------------------------------------------*/
-.division-line {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+/* SAME STYLE FOR THE CONTAINER OF EACH SECTION OF THE PAGE---------------------------------------------------------*/
+.landing, .how-started, .how-works, .innovations, .impact, .prototypes, .work-with-us {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  width: 94vw;
+  height: 50vh;
+  padding: 3vh;
+  margin: 0;
+  z-index: 0;
+  background-size: 94vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #07484f;
+  font-family: 'roboto condensed';
+  font-family: 'roboto condensed';
+}
+
+/* TITLE STYLES--------------------------------------------------------------------------------------------------------*/
+.title {
+  font-family: 'roboto condensed';
+  font-size: 1.8em;
+  color: white;
+  text-align: center;
+  margin-top: 3vh;
+}
+
+/*BUTTON STYLES------------------------------------------------------------------------*/
+.button-info {
+  margin: 0 auto;
+  padding: 0.7em 1.2em;
+  border-radius: 20px;
   border-style: none;
   background-color: #4D99AF;
-  width: 90vw;
-  height: 3px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+          box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+}
+
+.button-info:active {
+  position: fixed;
+  background-color: #07484f;
+  -webkit-box-shadow: 0 2px #666;
+          box-shadow: 0 2px #666;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
+}
+
+.button-buttom {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/* FONT SIZES------------------------------------------------------------------------------*/
+/*TEXT STYLES-------------------------------------------------------------------------------*/
+.text {
+  color: white;
+  font-family: 'roboto condensed';
+  font-size: 1.2em;
+  text-align: center;
 }
 
 html, body {
@@ -42,8 +98,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
 }
 
 /* HIDES THE REST OF THE CONTENT WHILE THE BURGER MENU IS OPEN --------------------------------*/
@@ -123,7 +179,7 @@ body {
   height: 100vh;
   z-index: 2;
   margin: 0;
-  background-image: url("images/overlay-background.svg");
+  background-color: black;
   background-size: 115vw 110vh;
 }
 
@@ -220,12 +276,24 @@ body {
           transform: scaleX(1);
 }
 
-.title {
+/* DIVISION LINE FOR TITLES---------------------------------------------------------------------*/
+.division-line-title {
   margin-top: 10vh;
-  color: white;
-  font-family: 'roboto condensed';
-  font-size: 2em;
-  text-align: center;
+  margin-bottom: 2vh;
+  border-style: none;
+  background-color: #4D99AF;
+  width: 80vw;
+  height: 3px;
+}
+
+/* DIVISION LINE---------------------------------------------------------------------------*/
+.division-line {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-style: none;
+  background-color: #4D99AF;
+  width: 80vw;
+  height: 3px;
 }
 
 .form-container {
