@@ -53,34 +53,22 @@ $colors:(
 
 /*BUTTON STYLES------------------------------------------------------------------------*/
 @mixin button-info-style{
+    width: 8em;
+    height: 2.6em;
     margin: 0 auto;
     padding: 0.7em 1.2em;
+    font-size: 1em;
     border-radius: 20px;
     border-style: none;
-    background-color: map-get($colors, button);
-    color: map-get($colors, text);
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+    background-image: radial-gradient(#1b373f, rgb(6, 43, 53));
+    color: white;
 }
 .button-info{
     @include button-info-style
 }
-@mixin button-info-style-active{
-    position: fixed;
-    background-color:#07484f;
-    box-shadow: 0 2px #666;
-    transform: translate(-50%, -45%);
-}
 .button-info:active{
-    @include button-info-style-active;
-}
-@mixin button-buttom-style{
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.button-buttom{
-    @include button-buttom-style;
+    transform: translateY(2px);
+    filter: brightness(80%);
 }
 
 /*TEXT STYLES------------------------------------------------------------------------------*/
@@ -246,6 +234,10 @@ body{
 .nav-link:hover::after{
     transform: scaleX(1); 
 }
+.navigation-line{
+    width: 60vw;
+    height: 1px;
+}
   
 /* DIVISION LINE---------------------------------------------------------------------------*/
 .division-line{
@@ -261,9 +253,9 @@ body{
 .landing{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     margin-top: 7vh;
-    background-image: url('images/landing.png');
+    background-image: url('images/small-landing.png');
     align-items: center;
 }
 .landing-text{
@@ -272,20 +264,15 @@ body{
     padding: 0;
     text-align: left;
     color: map-get($colors, text);
-    bottom: -8vh;
+    margin-top: 2vh;
     font-size: 1.4em;
     right: 25%;
     color: white;
+    width: 40vw;
 }
 .button-landing{
     position: relative;
-    bottom: -8vh;
-    margin-right: 1em;
-}
-.button-landing:active{
-    position: relative;
-    bottom: -8.3vh;
-    margin-right: 1em;
+    margin-top: 16vh;
 }
 .arrow{
     width: 10vw;
@@ -308,15 +295,15 @@ body{
    align-items: center;
    background: url('images/beginnings.png');
    background-size: cover;
+   background-position: center;
 }
-.svg-how-started{
-    width: 50vw;
-    margin-top: 5vh;
+.button-how-started{
+    margin-top: 35vh;
 }
 
 /* HOW IT WORKS SECTION---------------------------------------------------------------------------*/
 .how-works{
-    background-image: url('images/technology-small.png');
+    background-image: url('images/small-technology.png');
     color: map-get($colors, text);
     text-align: center;
 }
@@ -325,7 +312,9 @@ body{
     margin: 0;
     color: map-get($colors, text);
 }
-
+.how-works-button{
+    margin-top: 34vh;
+}
 /* INNOVATIONS SECTION-----------------------------------------------------------------------------*/
 .innovations{
     display: flex;
@@ -348,6 +337,9 @@ body{
     color: white;
     font-family: 'roboto condensed';
     text-align: center;
+}
+.innovations-button{
+    margin-top: 35vh;
 }
 
 /* NEWS SECTION--------------------------------------------------------------------------------*/
@@ -431,30 +423,24 @@ body{
     border-color: 07484f;
 }
 
+
 /* IMPACT SECTION-------------------------------------------------------------------------------*/
 .impact{
-    display: grid;
-    grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
-    grid-template-rows: 25% 55% 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
     background: url('images/impact-mountains.png');
     background-size: cover;
 }
 .impact-title{
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 1;
     color: map-get($colors, text);
     font-size: map-get($font-size, subtitle);
     margin: 0;
     text-align: center; 
 }
 .impact-subtitle{
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    margin-top: 6vh;
-    margin-bottom: 0;
+    margin: 0;
     padding: 0;
     color: map-get($colors, text);
     font-size: map-get($font-size, subtitle);
@@ -463,7 +449,7 @@ body{
 .pollution-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 0.5fr ;
     grid-column-start: 1;
     grid-column-end: 6;
     margin-top: 1vh;
@@ -560,7 +546,6 @@ body{
     grid-column-start: 3;
     grid-row-start: 3;
 }
-
 .pollution-city{
     position: relative;
     grid-column-start: 1;
@@ -570,7 +555,7 @@ body{
     color:map-get($colors, text);
     text-align: center;
     line-height: 40px;
-    // margin-top: -3vh;
+    margin: 0;
 }
 .last-update{
     box-sizing: border-box;
@@ -579,15 +564,20 @@ body{
     grid-row-start: 3;
     color:map-get($colors, text);
     text-align: center;
-    margin-top: 1vh;
+    margin: 0;
+}
+.impact-button{
+    margin-top: 2vh;
 }
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
 .prototypes{
-    background-image: url('images/prototypes.png');
-}
-.prototype-image{
-    width: 92vw;
+    background-image: url('images/small-prototypes.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .prototypes-title{
     font-size: map-get($font-size, title);
@@ -595,17 +585,25 @@ body{
     font-family: 'roboto condensed';
     text-align: center;
 }
+.prototypes-button{
+    margin-top: 28vh;
+}
 
 /* WORK WITH US SECTION----------------------------------------------------------------------*/
 .work-with-us{
-    background-image: url('images/work-with-us.png');
+    background-image: url('images/small-work-with-us.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .work-with-us-title{
     color: map-get($colors, text);
     text-align: center;
     font-family: 'roboto condensed';
     font-size: map-get($font-size, title);
-    margin: 0;
+}
+.work-with-us-button{
+    margin-top: 28vh;
 }
 
 /* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
@@ -673,6 +671,12 @@ body{
     to {bottom: 0; opacity: 0;}
 }
 /* FOOTER------------------------------------------------------------------------------------------*/
+.social:link, .social:visited{
+    color: white;
+}
+.social:active{
+    transform: scale(1.1);
+}
 .social-buttons li{
     list-style: none;
     display: inline-flex;

@@ -40,31 +40,22 @@
 
 /*BUTTON STYLES------------------------------------------------------------------------*/
 .button-info {
+  width: 8em;
+  height: 2.6em;
   margin: 0 auto;
   padding: 0.7em 1.2em;
+  font-size: 1em;
   border-radius: 20px;
   border-style: none;
-  background-color: #4D99AF;
+  background-image: radial-gradient(#1b373f, #062b35);
   color: white;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
-          box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
 }
 
 .button-info:active {
-  position: fixed;
-  background-color: #07484f;
-  -webkit-box-shadow: 0 2px #666;
-          box-shadow: 0 2px #666;
-  -webkit-transform: translate(-50%, -45%);
-          transform: translate(-50%, -45%);
-}
-
-.button-buttom {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
 }
 
 /*TEXT STYLES------------------------------------------------------------------------------*/
@@ -272,6 +263,11 @@ body {
           transform: scaleX(1);
 }
 
+.navigation-line {
+  width: 60vw;
+  height: 1px;
+}
+
 /* DIVISION LINE---------------------------------------------------------------------------*/
 .division-line {
   margin-top: 2vh;
@@ -291,11 +287,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   margin-top: 7vh;
-  background-image: url("images/landing.png");
+  background-image: url("images/small-landing.png");
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -307,22 +300,16 @@ body {
   padding: 0;
   text-align: left;
   color: white;
-  bottom: -8vh;
+  margin-top: 2vh;
   font-size: 1.4em;
   right: 25%;
   color: white;
+  width: 40vw;
 }
 
 .button-landing {
   position: relative;
-  bottom: -8vh;
-  margin-right: 1em;
-}
-
-.button-landing:active {
-  position: relative;
-  bottom: -8.3vh;
-  margin-right: 1em;
+  margin-top: 16vh;
 }
 
 .arrow {
@@ -355,16 +342,16 @@ body {
           align-items: center;
   background: url("images/beginnings.png");
   background-size: cover;
+  background-position: center;
 }
 
-.svg-how-started {
-  width: 50vw;
-  margin-top: 5vh;
+.button-how-started {
+  margin-top: 35vh;
 }
 
 /* HOW IT WORKS SECTION---------------------------------------------------------------------------*/
 .how-works {
-  background-image: url("images/technology-small.png");
+  background-image: url("images/small-technology.png");
   color: white;
   text-align: center;
 }
@@ -373,6 +360,10 @@ body {
   font-size: 1.8rem;
   margin: 0;
   color: white;
+}
+
+.how-works-button {
+  margin-top: 34vh;
 }
 
 /* INNOVATIONS SECTION-----------------------------------------------------------------------------*/
@@ -406,6 +397,10 @@ body {
   color: white;
   font-family: 'roboto condensed';
   text-align: center;
+}
+
+.innovations-button {
+  margin-top: 35vh;
 }
 
 /* NEWS SECTION--------------------------------------------------------------------------------*/
@@ -518,36 +513,29 @@ body {
 
 /* IMPACT SECTION-------------------------------------------------------------------------------*/
 .impact {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 3fr 1fr 3fr 1fr 3fr;
-      grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
-  -ms-grid-rows: 25% 55% 20%;
-      grid-template-rows: 25% 55% 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
   background: url("images/impact-mountains.png");
   background-size: cover;
 }
 
 .impact-title {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 6;
-  -ms-grid-row: 1;
-      grid-row-start: 1;
   color: white;
   margin: 0;
   text-align: center;
 }
 
 .impact-subtitle {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 6;
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-  margin-top: 6vh;
-  margin-bottom: 0;
+  margin: 0;
   padding: 0;
   color: white;
   text-align: center;
@@ -558,8 +546,8 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 0.5fr;
+      grid-template-rows: 1fr 1fr 0.5fr;
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 6;
@@ -729,6 +717,7 @@ body {
   color: white;
   text-align: center;
   line-height: 40px;
+  margin: 0;
 }
 
 .last-update {
@@ -741,16 +730,28 @@ body {
       grid-row-start: 3;
   color: white;
   text-align: center;
-  margin-top: 1vh;
+  margin: 0;
+}
+
+.impact-button {
+  margin-top: 2vh;
 }
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
 .prototypes {
-  background-image: url("images/prototypes.png");
-}
-
-.prototype-image {
-  width: 92vw;
+  background-image: url("images/small-prototypes.png");
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .prototypes-title {
@@ -760,9 +761,23 @@ body {
   text-align: center;
 }
 
+.prototypes-button {
+  margin-top: 28vh;
+}
+
 /* WORK WITH US SECTION----------------------------------------------------------------------*/
 .work-with-us {
-  background-image: url("images/work-with-us.png");
+  background-image: url("images/small-work-with-us.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .work-with-us-title {
@@ -770,7 +785,10 @@ body {
   text-align: center;
   font-family: 'roboto condensed';
   font-size: 1.8rem;
-  margin: 0;
+}
+
+.work-with-us-button {
+  margin-top: 28vh;
 }
 
 /* SUBSCRIBE SECTION---------------------------------------------------------------------------*/
@@ -881,6 +899,15 @@ body {
 }
 
 /* FOOTER------------------------------------------------------------------------------------------*/
+.social:link, .social:visited {
+  color: white;
+}
+
+.social:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .social-buttons li {
   list-style: none;
   display: -webkit-inline-box;

@@ -53,34 +53,22 @@ $colors:(
 
 /*BUTTON STYLES------------------------------------------------------------------------*/
 @mixin button-info-style{
+    width: 8em;
+    height: 2.6em;
     margin: 0 auto;
     padding: 0.7em 1.2em;
+    font-size: 1em;
     border-radius: 20px;
     border-style: none;
-    background-color: map-get($colors, button);
-    color: map-get($colors, text);
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 3px 3px;
+    background-image: radial-gradient(#1b373f, rgb(6, 43, 53));
+    color: white;
 }
 .button-info{
     @include button-info-style
 }
-@mixin button-info-style-active{
-    position: fixed;
-    background-color:#07484f;
-    box-shadow: 0 2px #666;
-    transform: translate(-50%, -45%);
-}
 .button-info:active{
-    @include button-info-style-active;
-}
-@mixin button-buttom-style{
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.button-buttom{
-    @include button-buttom-style;
+    transform: translateY(2px);
+    filter: brightness(80%);
 }
 
 /* FONT SIZES------------------------------------------------------------------------------*/
@@ -292,6 +280,10 @@ body{
 .nav-link:hover::after{
     transform: scaleX(1); 
 }
+.navigation-line{
+    width: 60vw;
+    height: 1px;
+}
   
 /* DIVISION LINE FOR TITLES---------------------------------------------------------------------*/
 .division-line-title{
@@ -382,7 +374,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
 }
 .brakes{
     width: 25%;
@@ -457,6 +449,14 @@ body{
 }
 
 /* FOOTER------------------------------------------------------------------------------------------*/
+a:link, a:visited{
+    color: white;
+    text-decoration: none;
+}
+a:active{
+    transform: scale(1.1);
+    text-decoration: none;
+}
 .social-buttons li{
     list-style: none;
     display: inline-flex;
