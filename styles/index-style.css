@@ -826,6 +826,9 @@ body {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
           animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  margin-left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /* Animations to fade the snackbar in and out */
@@ -1035,6 +1038,10 @@ body {
     font-size: 250%;
     line-height: 10vh;
   }
+  .nav-link:active {
+    font-size: 280%;
+    text-shadow: 2px 2px #134643;
+  }
   .landing {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1059,7 +1066,6 @@ body {
     min-height: 100%;
     font-size: 2em;
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
     padding: 20% 3%;
   }
   .button-landing-container {

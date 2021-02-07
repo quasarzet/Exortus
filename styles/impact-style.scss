@@ -102,7 +102,7 @@ $font-size:(
 }
 .quote-container{
     width: 60vw;
-    height: 50vh;
+    height: 40vh;
     color: white;
     font-family: 'roboto condensed';
     font-size: 3.5em;
@@ -120,7 +120,6 @@ $font-size:(
     font-size: 3.5rem;
     text-align: left;
     text-transform: uppercase;
-
 }
 .arrow{
     position:absolute;
@@ -285,7 +284,6 @@ body{
     width: 80vw;
     height: 3px;
 }
-
 .impact-subtitle{
     text-align: center;
     margin-top: 3vh;
@@ -301,7 +299,6 @@ body{
     font-family: 'roboto condensed';
     align-items: center;
 }
-
 .carbon-monoxide, .fine-particles, .ammonia{
     font-size: 5em;
     color: white;
@@ -309,14 +306,10 @@ body{
 }
 .unit-representation{
     text-align: center;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 .units{
-    margin-top: -5vh;
-    margin-bottom: 10vh;
-}
-.units:last-child{
-    margin-top: -5vh;
+    margin-top: 1vh;
     margin-bottom: 6vh;
 }
 .text-center{
@@ -335,7 +328,7 @@ body{
 }
 .car-gas{
   width: 30%;
-  height: 30%;
+//   height: 30%;
 }
 
 .pollution-text{
@@ -405,6 +398,8 @@ body{
 #snackbar.show {
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
 }
   
 /* Animations to fade the snackbar in and out */
@@ -466,4 +461,45 @@ a:active{
     text-align: center;
     padding: 0.3vw;
     margin: 0;
+}
+
+@media all and (max-width: 349px){
+    
+    .splash{
+    justify-content: space-between;
+    font-size: 90%;
+    }    
+    .social-buttons li{
+        padding: 0px 10px 0px 0px;
+    }
+    .disclaimer{
+        font-size: 90%;
+    }
+    .legal-items li{
+        font-size: 70%;
+    }
+}
+
+@media all and (min-width: 349px) and (max-width: 1025px){
+    
+    .nav-link{
+        font-size: 250%;
+        line-height: 10vh;
+    }
+    .nav-link:active{
+        font-size: 280%;
+        text-shadow: 2px 2px rgb(19, 70, 67);
+    }
+    .quote-container{
+        width:30vw;
+    }
+    .title{
+        font-size: 220%;
+    }
+    .social{
+        font-size: 150%;
+    }
+    .disclaimer, .legal-items{
+        font-size: 110%;
+    }
 }

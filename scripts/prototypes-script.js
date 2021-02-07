@@ -28,7 +28,7 @@ function displayBigImage(image){
         var imageIndex = (imageSource.slice(-6,-4)-1);
     }
     mainImage.src = imageSource;
-    slide(imageIndex);    
+    slide(imageIndex);  
 };
 
 // RECEIVES THE IMAGEINDEX FROM THE DISPLAYBIGNAME FUNCTION, CREATES A CUSTOMIZED ANIMATION
@@ -37,6 +37,7 @@ function slide(imageIndex){
     const startingPoint = images[imageIndex].offsetLeft - (mainImage.offsetLeft*2+100);
     gsap.to(images[imageIndex],{duration: 0.4, scale: 1.2, opacity: 0, repeat: 1, yoyo: true});
     gsap.from(mainImage, {duration: 0.4, x:startingPoint, y: 200, scale:0.1});
+    // console.log(images[imageIndex].offsetLeft);
 }
 
 // AN EVENT LISTENER THAT LISTENS TO AN ARRAY OF IMAGES
