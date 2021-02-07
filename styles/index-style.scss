@@ -26,13 +26,11 @@ $colors:(
     padding: 3vh;
     margin: 0;
     z-index: 0;
-    background-size: 94vw;
     background-position: center;
     background-repeat: no-repeat;
     border-style: solid;
     border-width: 4px;
     border-color: map-get($colors, border);
-    font-family: 'roboto condensed';
     font-family: 'roboto condensed';
 }
 .landing, .how-started, .how-works, .innovations, .impact, .prototypes, .work-with-us{
@@ -55,7 +53,6 @@ $colors:(
 @mixin button-info-style{
     width: 8em;
     height: 2.6em;
-    margin: 0 auto;
     padding: 0.7em 1.2em;
     font-size: 1em;
     border-radius: 20px;
@@ -69,6 +66,10 @@ $colors:(
 .button-info:active{
     transform: translateY(2px);
     filter: brightness(80%);
+}
+.button-info:visited{
+    text-decoration: none;
+    color: white;
 }
 
 /*TEXT STYLES------------------------------------------------------------------------------*/
@@ -90,7 +91,6 @@ $font-size:(
 html,body{
     box-sizing: border-box;
     width: 100vw;
-    min-width: 320px;
     margin: 0;
     background-color: map-get($colors, background);
     scroll-behavior: smooth;
@@ -103,13 +103,15 @@ body{
     align-items: center;
     padding-left: 2vw;
     padding-right: 2vw;
-    
 }
 /* HIDES THE REST OF THE CONTENT WHILE THE BURGER MENU IS OPEN --------------------------------*/
 .body-scroll-hide{
     height: 100vh;
     overflow: hidden;
     position: fixed;
+}
+.sections-hidden{
+    visibility: hidden;
 }
 
 /* HEADER--------------------------------------------------------------------------------------*/
@@ -137,7 +139,6 @@ body{
     text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 00px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
 }
 
-
 /* BURGER MENU WITH OVERLAY -----------------------------------------------------------------*/
 .overlay-container{
     width: 0;
@@ -153,7 +154,7 @@ body{
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-80vh;
+    left:-100vh;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -178,12 +179,12 @@ body{
     position: fixed;
     top: 2vh;
     left: 3vw;
-    cursor: pointer;
+    z-index: 3;
 }
 .burger-line{
     width: 100%;
     height: 3px;
-    background-color: map-get($colors, primary);
+    background-color: #4D99AF;
     transition: all .8s;
 }
 .overlay-change .line-1{
@@ -211,28 +212,9 @@ body{
     text-align: center;
     position: relative;
 }
-.nav-link::before,
-.nav-link::after{
-    content:'';
-    width: 100%;
-    height: 2px;
-    background-color: map-get($colors, primary);
-    position: absolute;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.5s;
-}
-.nav-link::before{
-    top: 0;
-    transform-origin: left;
-}
-.nav-link::after{
-    bottom: 0;
-    transform-origin: right;
-}
-.nav-link:hover::before,
-.nav-link:hover::after{
-    transform: scaleX(1); 
+.nav-link:active{
+    font-size: 2em;
+    text-shadow: 2px 2px rgb(19, 70, 67);
 }
 .navigation-line{
     width: 60vw;
@@ -253,26 +235,28 @@ body{
 .landing{
     display: flex;
     flex-direction: column;
-    // justify-content: space-evenly;
+    justify-content: space-around;
     margin-top: 7vh;
-    background-image: url('images/small-landing.png');
+    background-image: url('images/small-images/small-landing.png');
+    background-position: center;
     align-items: center;
+    
 }
 .landing-text{
+    display: flex;
+    flex-wrap: none;
     position: relative;
     margin: 0;
     padding: 0;
     text-align: left;
     color: map-get($colors, text);
-    margin-top: 2vh;
     font-size: 1.4em;
     right: 25%;
     color: white;
     width: 40vw;
 }
-.button-landing{
-    position: relative;
-    margin-top: 16vh;
+.button-landing-container{
+    margin-top: 40%;
 }
 .arrow{
     width: 10vw;
@@ -297,13 +281,17 @@ body{
    background-size: cover;
    background-position: center;
 }
-.button-how-started{
+.button-how-started-container{
     margin-top: 35vh;
 }
 
 /* HOW IT WORKS SECTION---------------------------------------------------------------------------*/
 .how-works{
-    background-image: url('images/small-technology.png');
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('images/small-images/small-technology.png');
+    background-size: cover;
     color: map-get($colors, text);
     text-align: center;
 }
@@ -312,34 +300,22 @@ body{
     margin: 0;
     color: map-get($colors, text);
 }
-.how-works-button{
-    margin-top: 34vh;
-}
+
 /* INNOVATIONS SECTION-----------------------------------------------------------------------------*/
 .innovations{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-    background-image: url('images/innovations.png');
+    background-image: url('images/small-images/small-innovations.png');
     background-size:cover;
-    z-index: 0;  
 }
 .innovations-title{
     font-size: map-get($font-size, title);
     color: map-get($colors, text);
     text-align: center;
     margin: 0;
-}
-.innovations-subtitle{
-    position: relative;
-    top: 11vh;
-    color: white;
-    font-family: 'roboto condensed';
-    text-align: center;
-}
-.innovations-button{
-    margin-top: 35vh;
 }
 
 /* NEWS SECTION--------------------------------------------------------------------------------*/
@@ -430,12 +406,12 @@ body{
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background: url('images/impact-mountains.png');
+    background: url('images/small-images/impact-mountains.png');
     background-size: cover;
 }
 .impact-title{
     color: map-get($colors, text);
-    font-size: map-get($font-size, subtitle);
+    font-size: map-get($font-size, title);
     margin: 0;
     text-align: center; 
 }
@@ -484,7 +460,7 @@ body{
     align-items: flex-end;
     justify-content: center;
     margin-top: 6vh;
-    color: gray;
+    color: rgb(190, 190, 190);
 }
 .unit-representationFP{
     grid-column-start: 2;
@@ -493,7 +469,7 @@ body{
     align-items: flex-end;
     justify-content: center;
     margin-top: 6vh;
-    color: gray;
+    color: rgb(190, 190, 190);;
 }
 .unit-representationAM{
     grid-column-start: 3;
@@ -502,7 +478,7 @@ body{
     align-items: flex-end;
     justify-content: center;
     margin-top: 6vh;
-    color: gray;
+    color: rgb(190, 190, 190);;
 }
 .pollutant-title{
     display: flex;
@@ -515,22 +491,19 @@ body{
     grid-column-start: 1;
     grid-row-start: 2;
     position: relative;
-    
 }
 .fine-particles-title{
     grid-column-start: 2;
     grid-row-start: 2;
     position: relative;
-
 }
 .ammonia-title{
     grid-column-start: 3;
     grid-row-start: 2;
     position: relative;
-
 }
 .units{
-    color: gray;
+    color: rgb(190, 190, 190);;
     font-size: 0.7em;
     text-align: center; 
 }
@@ -548,42 +521,36 @@ body{
 }
 .pollution-city{
     position: relative;
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 3;
     padding: 0;
     color:map-get($colors, text);
     text-align: center;
-    line-height: 40px;
     margin: 0;
 }
 .last-update{
-    box-sizing: border-box;
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 3;
     color:map-get($colors, text);
     text-align: center;
     margin: 0;
 }
-.impact-button{
+.button-impact-container{
     margin-top: 2vh;
 }
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
 .prototypes{
-    background-image: url('images/small-prototypes.png');
+    background-image: url('images/small-images/small-prototypes.png');
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 .prototypes-title{
     font-size: map-get($font-size, title);
     color: white;
     font-family: 'roboto condensed';
     text-align: center;
+    margin: 0;
 }
 .prototypes-button{
     margin-top: 28vh;
@@ -591,18 +558,20 @@ body{
 
 /* WORK WITH US SECTION----------------------------------------------------------------------*/
 .work-with-us{
-    background-image: url('images/small-work-with-us.png');
+    background-image: url('images/small-images/small-work-with-us.png');
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 .work-with-us-title{
     color: map-get($colors, text);
     text-align: center;
     font-family: 'roboto condensed';
     font-size: map-get($font-size, title);
+    margin: 0;
 }
-.work-with-us-button{
+.button-work-with-us-container{
     margin-top: 28vh;
 }
 
@@ -624,7 +593,7 @@ body{
     font-size: 0.9em;
     text-align: center;
     min-width: 60vw;
-    min-height: 3vh;
+    min-height: 4vh;
     margin-top: -10px;
     margin-bottom: 2vh;
 }
@@ -708,3 +677,202 @@ body{
     margin: 0;
 }
 
+
+@media all and (max-width: 349px){
+    .landing-text{
+        width: 60vw;
+        margin: 0;
+        right: 12%;
+    }
+    .button-landing-container{
+        margin-top: 25%;
+    }
+    .button-how-started-container{
+        margin-top: 30vh;
+    }
+    .button-how-works-container{
+        background-size: 90vw;
+    }
+    .innovations{
+        background-size: 100% 95%;
+    }
+    .news-text{
+        font-size: 80%;
+    }
+    .impact-subtitle{
+        font-size: 80%;
+    }
+    .pollution-container{
+        grid-template-rows: 1fr 1fr;
+    }
+    .units{
+        display: none;
+    }
+    .unit-representation{
+        margin-top: 45%;
+    }
+    .pollution-city, .last-update{
+        font-size: 80%;
+        line-height: 120%;
+    }
+    .button-impact-container{
+        margin-top: 3%;
+    }
+    .button-prototypes-container{
+        margin-top: 30vh;
+    }
+    .button-work-with-us-container{
+        margin-top: 30vh;
+    }
+    .social-buttons li{
+        padding: 0px 20px 0px 0px;
+    }
+    .subscribe-input::placeholder{
+        font-size: 80%;
+    }
+}
+
+@media all and (min-width: 350px) and (max-width: 380px){
+
+    .landing{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .landing-text{
+        width: 60vw;
+        margin: 0;
+        right: 10%;
+    }
+    .button-landing-container{
+        margin-top: 45%;
+    }
+    .button-how-started-container{
+        margin-top: 32vh;
+    }
+    .innovations{
+        background-size: 100% 95%;
+    }
+    .pollution-city, .last-update{
+        font-size: 80%;
+        line-height: 120%;
+    }
+    .button-prototypes-container{
+        margin-top: 5vh;
+    }
+    .button-work-with-us-container{
+        margin-top: 32vh;
+    }
+}
+
+@media all and (min-width: 500px) and (max-width: 1025px){
+
+
+    .nav-link{
+        font-size: 250%;
+        line-height: 10vh;
+    }
+    .landing{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: url('images/medium-images/medium-landing.png') no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 0;
+    }
+    .landing-text{
+        box-sizing: border-box;
+        width: 37vw;
+        right: 32%;
+        min-height: 100%;
+        font-size: 2em;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 10px;
+        padding: 20% 3%;
+        
+    }
+    .button-landing-container{
+        position: absolute;
+        margin-top: 55%;
+    }
+    .how-started{
+        background: url('images/medium-images/medium-beginnings.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .button-how-started-container{
+        margin-top: 36vh;
+    }
+    .how-works{
+        background: url('images/medium-images/medium-technology.png');
+        background-position: center;
+        background-size: cover;
+    }
+    .innovations{
+        background: url('images/medium-images/medium-innovations.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .news h1, p{
+        padding: 1.5vh 10vw;
+        font-size: 1.7em;
+    }
+    .news h6{
+        padding: 0 10vw;
+    }
+    .impact{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: url('images/medium-images/medium-impact.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .impact-title{
+        margin-bottom: 1vh;
+        font-size: 200%;
+    }
+    .pollution-container{
+        font-size: 150%;
+    }
+    .unit-representation{
+        margin-top: 35%;
+    }
+    .pollutant-title{
+        font-size: 120%;
+    }
+    .units{
+        font-size: 70%;
+        padding: 0 3vw;
+    }
+    .pollution-city, .last-update{
+        font-size: 120%;
+        margin-top: 0.5vh;
+    }
+    .last-update{
+        padding:0;
+    }
+    .button-impact-container{
+        margin-top:1vh;
+    }
+    .prototypes{
+        background: url('images/medium-images/medium-prototypes.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .work-with-us{
+        background: url('images/medium-images/medium-work-with-us.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .button-work-with-us-container{
+        margin-top: 32vh;
+    }
+    .social{
+        font-size: 150%;
+    }
+    .disclaimer, .legal-items{
+        font-size: 110%;
+    }
+}

@@ -2,10 +2,16 @@
 const menuIcon = document.querySelector('.burger-menu');
 const navbar = document.querySelector('.navbar');
 const bodyHide = document.body;
+const sectionsHide = document.body.querySelectorAll('.section');
 
 menuIcon.addEventListener('click', ()=>{
+    for (let i=0; i<sectionsHide.length; i++){
+      sectionsHide[i].classList.toggle('sections-hidden');
+    }
+    // sectionsHide.forEach(this.classList.toggle('sections-hidden'));
     navbar.classList.toggle('overlay-change');
     bodyHide.classList.toggle('body-scroll-hide');
+    
 })
 
 
@@ -165,19 +171,6 @@ var speedFloat = 60;
   }
 
 
-//GSAP ANIMATIONS--------------------------------------------------------------------
-
-//HEADER GLOW
-// var titleTl = gsap.timeline();
-// titleTl.to("#header-title", {className: "+=blueGlow", delay: 0, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
-// titleTl.to("#header-title", {delay: 0, fontSize: "2em", letterSpacing: "1px", duration: 0.3});
-
-
-//LANDING IMAGE ANIMATION
-// gsap.from(".landing-text", {x: -300, duration: 0.5});
-// gsap.from(".button-landing", {y: -200, duration: 0.5});
-
-
 //ARROW ANIMATION
 var arrow = document.querySelector(".arrow");
 // STARTS THE ARROW ANIMATION
@@ -207,7 +200,7 @@ function showSnackbar() {
 button.addEventListener('click', showSnackbar);
 
 
-//GSAP SCROLL ANIMATIONS
+//GSAP SCROLLING ANIMATIONS
 gsap.registerPlugin(ScrollTrigger);
 var screenWidth = document.body.clientWidth;
 
