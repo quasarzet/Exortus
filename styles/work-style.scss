@@ -155,7 +155,7 @@ body{
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-80vh;
+    left:-150vw;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -338,6 +338,12 @@ a:active{
 }
 
 
+@media all and (max-width: 500px){
+    .full-navigation{
+        display: none;
+    }
+}
+
 @media all and (min-width: 500px) and (max-width: 1025px){
 
     .nav-link{
@@ -351,10 +357,64 @@ a:active{
     .title{
         font-size: 220%;
     }
+    .full-navigation{
+        display: none;
+    }
     .social{
         font-size: 150%;
     }
     .disclaimer, .legal-items{
         font-size: 110%;
     }
+}
+
+@media all and (min-width: 1026px){
+    body{
+        padding: 0 10vw;
+    }
+    .overlay-container{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+    .overlay-change{
+        display: none;
+    }
+    .burger-menu{
+        display: none;
+    }
+    .burger-line{
+        display: none;
+    }
+    .navigation-line{
+        display: none;
+    }
+    .full-navigation li{
+        display: inline-flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+        list-style: none;
+        color: white;
+        font-family: 'roboto condensed';
+        font-size: 1.5em;
+        padding: 0 2vw;
+        margin-top: 8vh;
+    }
+    .full-navigation li:hover{
+        transform: scale(1.1);
+    }
+    .division-line-title{
+        margin-top: 2vh;
+    }
+    .form-container{
+        width: 60vw;
+    }
+    input{
+        
+        width: 50vw;
+        height: 5vh;
+        margin-bottom: 3vh;    
+    }
+
 }

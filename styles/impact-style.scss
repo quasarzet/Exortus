@@ -87,6 +87,10 @@ $font-size:(
     text-align: center;
 }
 
+.full-header{
+    display: none;
+}
+
 /*SPLASH SCREEN------------------------------------------------------------------------------*/
 .splash{
     box-sizing: border-box;
@@ -110,11 +114,12 @@ $font-size:(
     z-index: 7;
 }
 .quote{
-    display: inline-block;
     opacity: 0;
-    
+    margin: 0;
 }
 .green{
+    margin: 0;
+    display: inline-block;
     color: green;
     font-family: 'roboto condensed';
     font-size: 3.5rem;
@@ -171,7 +176,7 @@ body{
     grid-column-start: 2;
     grid-column-end: 3;
     margin-top: 2vh;
-    font-size: 1.5em;
+    font-size: 2.5em;
     color: map-get($colors, text);;
     font-family: andromeda;
     opacity: 0;
@@ -198,7 +203,7 @@ body{
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-80vh;
+    left:-150vh;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -328,9 +333,7 @@ body{
 }
 .car-gas{
   width: 30%;
-//   height: 30%;
 }
-
 .pollution-text{
     text-align: center;
 }
@@ -480,6 +483,7 @@ a:active{
     }
 }
 
+// MEDIA QUERY FOR TABLETS
 @media all and (min-width: 349px) and (max-width: 1025px){
     
     .nav-link{
@@ -502,4 +506,106 @@ a:active{
     .disclaimer, .legal-items{
         font-size: 110%;
     }
+}
+
+
+// MEDIA QUERY FOR DESKTOPS
+@media all and (min-width: 1025px){
+        body{
+            padding: 0 10vw;
+        }
+        .full-header{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            position: fixed;
+            width: 100vw;
+            height: 15vh;
+            margin-top: 0;
+            align-items: center;
+            z-index: 2;
+            background-color: rgba(0,0,0,0.9);
+          }
+        .full-navigation li{
+            display: inline-flex;
+            justify-content: space-around;
+            box-sizing: border-box;
+            list-style: none;
+            color: white;
+            font-family: 'roboto condensed';
+            font-size: 1.5em;
+            padding: 0 2vw;
+        }
+        .full-navigation li:hover{
+            transform: scale(1.1);
+        }
+        .division-line-title{
+            margin-top: 15vh;
+        }
+        .overlay-container{
+            display: none;
+        }
+        .navbar{
+            display: none;
+        }
+        .overlay-change{
+            display: none;
+        }
+        .burger-menu{
+            display: none;
+        }
+        .burger-line{
+            display: none;
+        }
+        .navigation-line{
+            display: none;
+        }
+        .quote-container{
+            width: 15vw;
+        }
+        .impact-section{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 0.2;
+            grid-column-gap: 2vw;
+        }
+        .pollution-city, .last-update{
+            grid-column: 1/4;
+            margin: 0;
+        
+        }
+        .advantages{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 2vw;
+        }
+        .car-container{
+            grid-column: 1/2;
+        }
+        .tires-container{
+            grid-column: 2/3;
+        }
+        .brakes-container{
+            grid-column: 3/4;
+        }
+        .car-text, .tires-text, .brakes-text{
+            text-align: justify;
+        }
+        
+
+        .car-gas{
+            width: 30%;
+        }
+        .tires{
+            width: 25%;
+        }
+        .brakes{
+            width: 25%;
+        }
+        .subscribe-input{
+            min-width: 20vw;
+        }
+        #snackbar {
+            min-width: 20vw;
+        }
 }

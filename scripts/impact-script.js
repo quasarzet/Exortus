@@ -39,7 +39,7 @@ textTimeline
 })
 .to(".arrow", {duration: 0.5,
   delay: 0.3,
-  x: 600, 
+  x: "200vw", 
   ease: "none"
 })
 .to(".splash", {duration: 1,
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () =>{
 //HEADER GLOW--------------------------------------------------------------
 const splashDelay = 8;
 var titleTl = gsap.timeline();
-titleTl.to("#header-title", {className: "+=blueGlow", delay: splashDelay, opacity: 1, fontSize: "2em", letterSpacing: "10px", duration: 0.7});
-titleTl.to("#header-title", {fontSize: "2em", letterSpacing: "1px", duration: 0.3});
+titleTl.to("#header-title", {className: "+=blueGlow", delay: splashDelay, opacity: 1, fontSize: "2.5em", letterSpacing: "10px", duration: 0.7});
+titleTl.to("#header-title", {fontSize: "2.5em", letterSpacing: "1px", duration: 0.3});
 
 
 //BURGER MENU AND OVERLAY------------------------------------------------------

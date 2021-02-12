@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 //BURGER MENU AND OVERLAY------------------------------------------------------
 const menuIcon = document.querySelector('.burger-menu');
 const navbar = document.querySelector('.navbar');
@@ -8,10 +10,111 @@ menuIcon.addEventListener('click', ()=>{
     for (let i=0; i<sectionsHide.length; i++){
       sectionsHide[i].classList.toggle('sections-hidden');
     }
-    // sectionsHide.forEach(this.classList.toggle('sections-hidden'));
     navbar.classList.toggle('overlay-change');
     bodyHide.classList.toggle('body-scroll-hide');
+})
+
+
+// SCROLLING CONTROL---------------------------------------------------------------
+const header = document.querySelector(".full-header");
+const lines = document.querySelectorAll(".scroll-line");
+const scrollText = document.querySelector(".scroll-line-text")
+const nextSectionButton = document.querySelector('.next-section-arrow');
+
+
+// GIVES A BACKGROUND TO THE HEADER WHEN NAVIGATING BEYOND THE FIRST PAGE
+window.addEventListener('scroll', event=>{
+    let scrollTop = document.body.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
     
+    if (progress < 5){
+        gsap.to(header,{background: 'none', duration: 1});
+    }else{
+        gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
+    }
+    if(progress<=13){
+      scrollText.textContent = 'Home';
+    }
+    if(progress>=14){
+        scrollText.textContent = 'The Technology';
+    }
+    if(progress>=42){
+        scrollText.textContent = 'Impact';
+    }
+    if(progress>=70){
+        scrollText.textContent = 'Opportunities';
+    }
+    if(progress>=93){
+        scrollText.textContent = 'Subscribe';
+    }
+});
+
+
+// CHANGES THE TEXT CONTENT OF THE SECTION INDICATOR
+lines.forEach(line=>{
+    line.addEventListener('mouseenter', ()=>{
+        const sections = {
+            scrollLine1: "Home",
+            scrollLine2: "The Technology",
+            scrollLine3: "Impact",
+            scrollLine4: "Opportunities",
+            scrollLine5: "Subscribe"
+        }
+    scrollText.textContent = `${sections[line.id]}`;
+})});
+
+// CHANGES THE TEXT BACK TO THE DEFAULT VALUE
+lines.forEach(line=>{
+    line.addEventListener('mouseleave', ()=>{
+        let scrollTop = document.body.scrollTop;
+        let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+        // UPDATES THE VALUE OF THE TEXT
+        if(progress<=13){
+            scrollText.textContent = 'Home';
+        }
+        if(progress>=14){
+            scrollText.textContent = 'The Technology';
+        }
+        if(progress>=42){
+            scrollText.textContent = 'Impact';
+        }
+        if(progress>=70){
+            scrollText.textContent = 'Opportunities';
+        }
+        if(progress>=93){
+            scrollText.textContent = 'Subscribe';
+        }
+})});
+
+
+// JUMPS TO THE NEXT SECTION BELOW AND RESTARTS AT THE END
+nextSectionButton.addEventListener('click', ()=>{
+  // SECTIONS OF THE WEBSITE
+        const firstSection = document.querySelector('.landing');
+        const secondSection = document.querySelector('.full-second-section');
+        const thirdSection = document.querySelector('.impact');
+        const fourthSection = document.querySelector('.full-fourth-section');
+        const fifthSection = document.querySelector('.subscribe-container');
+        let scrollTop = document.body.scrollTop;
+        let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+        if(progress<=13){
+            secondSection.scrollIntoView();
+        }
+        if(progress>=14){
+            thirdSection.scrollIntoView();
+        }
+        if(progress>=42){
+            fourthSection.scrollIntoView();
+        }
+        if(progress>=70){
+            fifthSection.scrollIntoView();
+        }
+        if(progress>=90){
+            firstSection.scrollIntoView();
+        }
 })
 
 
@@ -26,7 +129,6 @@ var slides = document.querySelectorAll('.slide');
 let index = 1;
 let slideId; 
 
-
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[slides.length - 1].cloneNode(true);
 
@@ -36,11 +138,11 @@ lastClone.id = 'last-clone';
 slide.append(firstClone);
 slide.prepend(lastClone);
 
-
+// DETECTS RESIZING AND CHANGES THE SIZE OF THE SLIDERS ACCORDINGLY
 window.addEventListener("resize", function(event) {
-  var newWidth = document.body.clientWidth;
+  var newWidth = slide.clientWidth;
   slideWidth = newWidth;
-  return moveToNextSlide();
+  setTimeout(()=>{moveToNextSlide()}, 500);
 });
 
 var slideWidth = slides[index].clientWidth;
@@ -92,12 +194,11 @@ slideContainer.addEventListener('mouseleave', startSlide);
 
 nextBtn.addEventListener('click', moveToNextSlide);
 prevBtn.addEventListener('click', moveToPrevSlide);
-// setTimeout(startSlide, 4000);
 
-//HAMMER MODULE FOR SWIPING
+//HAMMER MODULE FOR SWIPING ON MOBILE DEVICES
 //IT TARGETS NEWS AND LISTENS FOR SWIPING 
-var swipeElement = document.querySelector('.news');
-var swipeAction = new Hammer(swipeElement);
+const swipeElement = document.querySelector('.news');
+const swipeAction = new Hammer(swipeElement);
 swipeAction.on("swipeleft", moveToNextSlide);
 swipeAction.on("swiperight", moveToPrevSlide);
 
@@ -149,8 +250,8 @@ async function incrementNumber(){
   }
 }
 
-var speed = 15;
-var speedFloat = 60;
+const speed = 15;
+const speedFloat = 60;
 
    function incrementNumberRecursive (i, finalNumber, element) {
     if (i <= finalNumber) {
@@ -172,16 +273,16 @@ var speedFloat = 60;
 
 
 //ARROW ANIMATION
-var arrow = document.querySelector(".arrow");
+const arrow = document.querySelector(".arrow");
 // STARTS THE ARROW ANIMATION
 function arrowAnimation(){
   arrow.classList.add("arrow");
-  gsap.to(".arrow", {y: 70, duration: 1.5, opacity: 1, repeat: -1});
+
+  gsap.to(".arrow", {y: 50, duration: 1.5, opacity: 1, repeat: -1});
 }
 arrowAnimation();
 // STOPS THE ARROW ANIMATION WHEN SCROLL IS DETECTED
 function stopArrow(){
-  // arrow.visibility.visible = false;
   arrow.classList.remove("arrow");
   arrow.classList.add("arrow-invisible");
 }
@@ -200,10 +301,12 @@ function showSnackbar() {
 button.addEventListener('click', showSnackbar);
 
 
-//GSAP SCROLLING ANIMATIONS
-gsap.registerPlugin(ScrollTrigger);
-var screenWidth = document.body.clientWidth;
+// //GSAP SCROLLING ANIMATIONS
+function scrollingAnimations(){
 
+let screenWidth = document.body.clientWidth;
+
+if(screenWidth <= 1025){
 gsap.from(".how-started",{
   scrollTrigger: {
     trigger: ".how-started",
@@ -237,9 +340,9 @@ gsap.from(".innovations",{
   duration: 1,
 });
 
-gsap.from(".news",{
+gsap.from(".impact",{
   scrollTrigger: {
-    trigger: ".news",
+    trigger: ".impact",
     start: "top center",
     toggleActions:"play none none none"
   },
@@ -249,14 +352,14 @@ gsap.from(".news",{
 });
 
 ScrollTrigger.create({
-  trigger: ".news",
-  start: "top center",
-  onEnter: startSlide
-});
-
-gsap.from(".impact",{
-  scrollTrigger: {
     trigger: ".impact",
+    start: "top center",
+    onEnter: addNewData
+  });
+
+gsap.from(".news",{
+  scrollTrigger: {
+    trigger: ".news",
     start: "top center",
     toggleActions:"play none none none"
   },
@@ -266,10 +369,10 @@ gsap.from(".impact",{
 });
 
 ScrollTrigger.create({
-    trigger: ".impact",
-    start: "top center",
-    onEnter: addNewData
-  });
+  trigger: ".news",
+  start: "top center",
+  onEnter: startSlide
+});
 
 gsap.from(".prototypes",{
   scrollTrigger: {
@@ -292,3 +395,60 @@ gsap.from(".work-with-us",{
   x: -screenWidth,
   duration: 1
 });
+}else{
+  gsap.from(".full-scrolling-lines",{opacity: 0, duration: 3});
+  gsap.from([".landing-text", ".button-full-landing-container"], {opacity: 0, y:40, duration: 1});
+  gsap.to([".how-started", ".how-works",".innovations",".prototypes", ".work-with-us"], {opacity: 0, y:40, backgroundSize: "150%"});
+  gsap.to(".full-news-container", {opacity: 0, y:40, fontSize:"150%"});
+
+  ScrollTrigger.create({
+    trigger: ".full-second-section",
+    start: "top center",
+    onEnter: secondSectionAnimations =>{
+      const fullSizeTimeline = gsap.timeline();
+      fullSizeTimeline
+      .to(".how-started",{opacity: 1, y:-40, backgroundSize:"80%", duration: 0.5})
+      .to(".how-works",{opacity: 1, y:-40, backgroundSize:"100%", duration: 0.5})
+      .to(".innovations",{opacity: 1, y:-40, backgroundSize:"100%", duration: 0.5})
+    }
+  });
+  ScrollTrigger.create({
+    trigger: ".impact",
+    start: "top center",
+    onEnter: addNewData
+  });
+  ScrollTrigger.create({
+    trigger: ".full-fourth-section",
+    start: "top center",
+    onEnter: secondSectionAnimations =>{
+      const fullSizeTimeline = gsap.timeline();
+      fullSizeTimeline
+      .to(".full-news-container",{opacity: 1, y:-40, fontSize:"100%", duration: 0.5})
+      .to(".prototypes",{opacity: 1, y:-40, backgroundSize:"100%", duration: 0.5})
+      .to(".work-with-us",{opacity: 1, y:-40, backgroundSize:"100%", duration: 0.5})
+    }
+  });
+}
+
+}
+
+function checkAnimation(){
+      let scrollTop = document.body.scrollTop;
+      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+      
+        scrollingAnimations();
+ 
+}
+
+
+window.addEventListener('load', scrollingAnimations);
+window.addEventListener('resize', checkSize=>{
+  if (document.body.clientWidth <1025){
+  console.log(document.body.clientWidth)
+  window.location.reload()
+  }else{
+    return
+  }
+});
+

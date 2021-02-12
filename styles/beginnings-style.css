@@ -64,7 +64,7 @@
   color: white;
   font-family: 'roboto condensed';
   font-size: 1.2em;
-  text-align: center;
+  margin-top: 0;
 }
 
 html, body {
@@ -108,7 +108,7 @@ body {
       grid-template-columns: repeat(3, 1fr);
   width: 100vw;
   position: fixed;
-  height: 7vh;
+  height: 9vh;
   top: 0;
   background-color: black;
   opacity: 0.95;
@@ -120,7 +120,7 @@ body {
       grid-column-start: 2;
   grid-column-end: 3;
   margin-top: 2vh;
-  font-size: 1.5em;
+  font-size: 3em;
   color: white;
   font-family: andromeda;
   opacity: 0;
@@ -155,12 +155,12 @@ body {
   background-color: black;
   position: absolute;
   top: 0;
-  left: -80vh;
+  left: -200vw;
   -webkit-transition: left 0.5s ease-in-out;
   transition: left 0.5s ease-in-out;
   color: white;
   overflow-x: hidden;
-  z-index: 2;
+  z-index: 3;
   margin: 0;
 }
 
@@ -168,7 +168,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 4;
   margin: 0;
   background-color: black;
   background-size: 115vw 110vh;
@@ -245,7 +245,7 @@ body {
 
 /* DIVISION LINE FOR TITLES---------------------------------------------------------------------*/
 .division-line-title {
-  margin-top: 10vh;
+  margin-top: 15vh;
   margin-bottom: 2vh;
   border-style: none;
   background-color: #4D99AF;
@@ -291,7 +291,7 @@ body {
   text-align: center;
   min-width: 60vw;
   min-height: 4vh;
-  margin-top: -10px;
+  margin-top: 0.5vh;
   margin-bottom: 2vh;
 }
 
@@ -306,9 +306,6 @@ body {
   position: fixed;
   z-index: 3;
   padding: 2vh;
-  margin-left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   bottom: 2vh;
   min-width: 40vw;
   background-color: white;
@@ -323,9 +320,6 @@ body {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
           animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  margin-left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 /* Animations to fade the snackbar in and out */
@@ -430,7 +424,25 @@ a:active {
   margin: 0;
 }
 
+@media all and (max-width: 499px) {
+  .full-navigation {
+    display: none;
+  }
+  .full-header {
+    height: 8vh;
+  }
+  .division-line-title {
+    margin-top: 10vh;
+  }
+}
+
 @media all and (min-width: 500px) and (max-width: 1025px) {
+  .full-navigation {
+    display: none;
+  }
+  .division-line-title {
+    margin-top: 15vh;
+  }
   .nav-link {
     font-size: 250%;
     line-height: 10vh;
@@ -442,11 +454,74 @@ a:active {
   .title {
     font-size: 220%;
   }
+  .text {
+    -webkit-columns: 1;
+            columns: 1;
+  }
   .social {
     font-size: 150%;
   }
   .disclaimer, .legal-items {
     font-size: 110%;
+  }
+}
+
+@media all and (min-width: 1026px) {
+  body {
+    padding: 0 10vw;
+  }
+  .overlay-container {
+    display: none;
+  }
+  .navbar {
+    display: none;
+  }
+  .overlay-change {
+    display: none;
+  }
+  .burger-menu {
+    display: none;
+  }
+  .burger-line {
+    display: none;
+  }
+  .navigation-line {
+    display: none;
+  }
+  .full-navigation li {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    list-style: none;
+    color: white;
+    font-family: 'roboto condensed';
+    font-size: 1.5em;
+    padding: 0 2vw;
+    margin-top: 8vh;
+  }
+  .full-navigation li:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  .division-line-title {
+    margin-top: 2vh;
+  }
+  .all-text {
+    text-align: justify;
+    -webkit-columns: 30vw 2;
+            columns: 30vw 2;
+    -webkit-column-gap: 6vw;
+            column-gap: 6vw;
+  }
+  .subscribe-input {
+    min-width: 20vw;
+  }
+  #snackbar {
+    min-width: 20vw;
   }
 }
 /*# sourceMappingURL=beginnings-style.css.map */

@@ -1,3 +1,23 @@
+html{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 400vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
 @font-face {
     font-family: andromeda;
     src: url(fonts/Andromeda.ttf);
@@ -88,22 +108,7 @@ $font-size:(
     sub-text: 0.5rem
 );
 
-html,body{
-    box-sizing: border-box;
-    width: 100vw;
-    margin: 0;
-    background-color: map-get($colors, background);
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 2vw;
-    padding-right: 2vw;
-}
 /* HIDES THE REST OF THE CONTENT WHILE THE BURGER MENU IS OPEN --------------------------------*/
 .body-scroll-hide{
     height: 100vh;
@@ -154,7 +159,7 @@ body{
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-100vh;
+    left:-150vw;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -240,7 +245,6 @@ body{
     background-image: url('images/small-images/small-landing.png');
     background-position: center;
     align-items: center;
-    
 }
 .landing-text{
     display: flex;
@@ -251,7 +255,7 @@ body{
     text-align: left;
     color: map-get($colors, text);
     font-size: 1.4em;
-    right: 25%;
+    right: 40%;
     color: white;
     width: 40vw;
 }
@@ -259,7 +263,7 @@ body{
     margin-top: 40%;
 }
 .arrow{
-    width: 10vw;
+    width: 8vw;
     position: absolute;
     top: 68vh;
     left: 50%;
@@ -382,7 +386,8 @@ body{
     font-size: 30px;
     border: none;
     padding: 15px;
-    color: map-get($colors, text);
+    fill: white;
+    width: 5%;
 }
 #next-btn:focus, #prev-btn:focus{
      outline: none;
@@ -406,7 +411,7 @@ body{
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background: url('images/small-images/impact-mountains.png');
+    background: url('images/small-images/small-impact-mountains.png');
     background-size: cover;
 }
 .impact-title{
@@ -537,7 +542,7 @@ body{
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
 .prototypes{
-    background-image: url('images/small-images/small-prototypes.png');
+    background-image: url('images/small-images/small-prototypes.png') no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -679,12 +684,21 @@ body{
     margin: 0;
 }
 
+// ELEMENTS TO HIDE
+.full-navigation, .full-header, .full-scrolling-lines, .button-full-landing-container, .button-full-landing{
+    display: none;
+}
 
+
+// SMALL SMARTPHONES
 @media all and (max-width: 349px){
+    .full-navigation, .full-header, .button-full-landing-container, .button-full-landing{
+        display: none;
+    }
     .landing-text{
         width: 60vw;
         margin: 0;
-        right: 12%;
+        right: 20%;
     }
     .button-landing-container{
         margin-top: 25%;
@@ -734,8 +748,12 @@ body{
     }
 }
 
-@media all and (min-width: 350px) and (max-width: 380px){
 
+// MEDIUM SMARTPHONES
+@media all and (min-width: 350px) and (max-width: 380px){
+    .full-navigation, .full-header, .button-full-landing-container, .button-full-landing{
+        display: none;
+    }
     .landing{
         display: flex;
         flex-direction: column;
@@ -767,8 +785,12 @@ body{
     }
 }
 
-@media all and (min-width: 500px) and (max-width: 1025px){
 
+// TABLETS
+@media all and (min-width: 500px) and (max-width: 1025px){
+    .full-navigation, .full-header, .button-full-landing-container, .button-full-landing{
+        display: none;
+    }
     .nav-link{
         font-size: 250%;
         line-height: 10vh;
@@ -786,18 +808,26 @@ body{
         background-size: cover;
         padding: 0;
     }
+    .full-message-container{
+        max-width: 40vw;
+        max-height: 60%;
+        padding: 2vw;
+        background-color: rgba(0,0,0,0.35);
+        border-radius: 5px;
+        margin-right: 60vw;
+        margin-left: 5vw;
+        margin-top: 5vh;
+    }
     .landing-text{
-        box-sizing: border-box;
-        width: 37vw;
-        right: 32%;
-        min-height: 100%;
-        font-size: 2em;
-        background-color: rgba(0,0,0,0.7);
-        padding: 20% 3%;
+        width: 100%;
+        right: 0%;
+        top: 0%;
     }
     .button-landing-container{
-        position: absolute;
-        margin-top: 55%;
+        display: fixed;
+        margin-top: 0;
+        margin-bottom: 0.5vh;
+        
     }
     .how-started{
         background: url('images/medium-images/medium-beginnings.png') no-repeat;
@@ -805,7 +835,7 @@ body{
         background-position: center;
     }
     .button-how-started-container{
-        margin-top: 36vh;
+        margin-top: 35vh;
     }
     .how-works{
         background: url('images/medium-images/medium-technology.png');
@@ -819,7 +849,7 @@ body{
     }
     .news h1, p{
         padding: 1.5vh 10vw;
-        font-size: 1.7em;
+        // font-size: 1.7em;
     }
     .news h6{
         padding: 0 10vw;
@@ -831,6 +861,7 @@ body{
         background: url('images/medium-images/medium-impact.png') no-repeat;
         background-size: cover;
         background-position: center;
+        font-size: 70%;
     }
     .impact-title{
         margin-bottom: 1vh;
@@ -878,4 +909,500 @@ body{
     .disclaimer, .legal-items{
         font-size: 110%;
     }
+}
+
+
+//DESKTOPS
+@media all and (min-width: 1026px){
+    a:active, a:visited, a:link{
+        text-decoration: none;
+        color: white;
+    }
+    // TO HIDE
+    .header, .overlay-container, .button-landing-container, hr, .button-info{
+        display: none;
+    }
+    .section{
+        border: none;
+    }
+    .landing{
+        box-sizing: border-box;
+        background-image: url('images/full-landing.png');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .full-header{
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        position: fixed;
+        width: 100vw;
+        margin-top: 0;
+        align-items: center;
+        z-index: 3;
+        overflow: hidden;
+    }
+    #full-header-title{
+    padding:0;
+    font-size: 3em;
+    font-family: andromeda;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 00px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    margin: 2vh;
+}
+    .full-navigation{
+    display: inline-flex;
+    box-sizing: border-box;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    list-style: none;
+    color: white;
+    justify-content: space-around;
+    font-family: 'roboto condensed';
+    font-size: 1.3em;
+    padding: 0 5vw;
+    }
+    .full-message-container{
+    display:flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    justify-content: space-around;
+    align-items: center;
+    background: url('images/landing-background.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    }
+    .landing-text{
+    width: 20vw;
+    margin: 0;
+    color: white;
+    font-family: 'roboto condensed';
+    font-size: 3em;
+    line-height: 8vh;
+    text-align: left;
+    padding: 0;
+    text-align: left;
+    right: 0;
+    margin-top: 10vh;
+    }
+    .arrow{
+    width: 2vw;
+    position: absolute;
+    top: 85vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    }
+    .arrow-invisible{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    }
+    .full-scrolling-lines{
+    color: white;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 30vh;
+    left: 90vw;
+    height: 50vh;
+    width: 10vw;
+    }
+    .scroll-line-text{
+    color: white;
+    transform: rotate(-90deg);
+    font-family: 'roboto condensed';
+    font-size: 1em;
+    margin-bottom: 5vh;
+    }
+    .scroll-line{
+    background-color: white;
+    width: 2vw;
+    height: 5px;
+    margin: 2vh 0;
+    }
+    .scroll-line:hover{
+    transform: scaleX(1.5);
+    cursor: pointer;
+    }
+    .next-section-arrow{
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    .scroll-vertical-arrow{
+    margin-top: 1vh;
+    width: 15%;
+    fill: white;
+    cursor: pointer;
+    }
+    .title{
+    color:white;
+    font-family: 'roboto condensed';
+    font-size: 250%;
+    text-align: center;
+    }
+    .button-full-landing-container, .button-full-landing{
+        display: inline-block;
+    }
+
+
+    /*HOW STARTED SECTION
+    /*HOW WORKS
+    /*INNOVATIONS-----------------------------------------------------------------------------------------*/
+    .full-second-section{
+        width: 100vw;
+        height: 100vh;
+        background: url('images/network-background.png');
+        background-color: #041f19;
+        background-size: cover;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2vw;
+    }
+    .how-started, .how-works, .innovations{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:flex-start;
+        border-style: solid;
+        border-color: #07484f;
+        border-width: 4px;
+        border-radius: 8px;
+        width: 30vw;
+        height: 60vh;
+        color: white;
+    }
+    .how-started{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        background: url('images/beginnings.png') no-repeat;
+        background-color: black;
+        background-size: 75%;
+        background-position-x: center;
+        background-position-y: 5vh;
+    }
+    .how-works{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        border-style: solid;
+        background: url('images/technology.png') no-repeat;
+        background-color: black;
+        background-size: cover;
+        background-position: center;
+    }
+    .innovations{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        background: url('images/innovations.png') no-repeat;
+        background-color: black;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: 2vh;
+    }
+    /*IMPACT SECTION--------------------------------------------------------------------------------------*/
+    .impact{
+        width: 99vw;
+        height: 100vh;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.5fr 1fr 0.5fr;
+        background: url("images/impact-mountains.png") no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: "roboto condensed";
+        font-size: 85%;
+    }
+    .impact-title{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+    }
+    .impact-subtitle{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        color: white;
+        font-size: 1.8em;
+        font-family: 'roboto condensed';
+        text-align: center;
+        margin-top: 16vh;
+    }
+    .pollution-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 0.5fr ;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        border-style: solid;
+        border-color: white;
+        background-color: rgba(0,0,0,0.35);
+    }
+    .carbon-monoxide, .fine-particles, .ammonia{
+        color: white;
+        font-size: 7em;
+        text-align: center;
+    }
+    .carbon-monoxide{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start:1;
+    }
+    .fine-particles{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start:1;
+    }
+    .ammonia{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start:1;
+    }
+    .unit-representationCM{
+        grid-column-start: 1;
+        grid-row-start: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: rgb(190, 190, 190);
+    }
+    .unit-representationFP{
+        grid-column-start: 2;
+        grid-row-start: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: rgb(190, 190, 190);;
+    }
+    .unit-representationAM{
+        grid-column-start: 3;
+        grid-row-start: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: rgb(190, 190, 190);;
+    }
+    .pollutant-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;   
+        font-size: 3em;
+    }
+    .carbon-monoxide-title{
+        grid-column-start: 1;
+        grid-row-start: 2;
+        position: relative;
+    }
+    .fine-particles-title{
+        grid-column-start: 2;
+        grid-row-start: 2;
+        position: relative;
+    }
+    .ammonia-title{
+        grid-column-start: 3;
+        grid-row-start: 2;
+        position: relative;
+    }
+    .units{
+        color: rgb(190, 190, 190);;
+        font-size: 2em;
+        text-align: center; 
+    }
+    .unit1{
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+    .unit2{
+        grid-column-start: 2;
+        grid-row-start: 3;
+    }
+    .unit3{
+        grid-column-start: 3;
+        grid-row-start: 3;
+    }
+    .pollution-city{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        position: relative;
+        color: white;
+        text-align: center;
+        font-size: 2em;
+    }
+    .last-update{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        color:white;
+        text-align: center;
+        font-size: 2em;
+        margin-top: 10vh;
+    }
+    /*NEWS
+    /*PROTOTYPES
+    /*JOIN THE TEAM-----------------------------------------------------------------------------------------*/
+    .full-fourth-section{
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background: url('images/network-background.png');
+        padding: 2vw;
+    }
+    .full-news-container, .prototypes, .work-with-us{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:flex-start;
+        box-sizing: border-box;
+    }
+    .full-news-container, .prototypes, .work-with-us{
+        border-style: solid;
+        border-color: #07484f;
+        border-width: 5px;
+        border-radius: 8px;
+        width: 30vw;
+        height: 60vh;
+        color: white;
+    }
+    .full-news-container{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .news{
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        font-family: 'roboto condensed';
+        color: white;
+        text-overflow: clip;
+    }
+    .slide{
+        height: 100%;
+        min-width: 100%;
+        position: relative;
+        margin: 0 auto;
+    }
+    .slides{
+        display: flex;
+        height: 100%;
+        margin: 0 auto; 
+        min-width: 100%;
+    }
+    .news-links{
+        text-decoration: inherit;
+        color: inherit;
+    }
+    .news h1, p{
+        text-align: center;
+        padding-left: 2.2em;
+        padding-right: 2em;
+    }
+    .news-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 30%;
+        // font-size:2em;
+    }
+    .date, .news-author{
+        margin: 0;
+        padding-left: 3rem;
+        color: lightgray;
+    }
+    .news-text{
+        margin-top: 5vh;
+        // font-size: 1.5em;
+        height: 40%;
+        text-overflow: ellipsis;
+    }
+    .slide-controls{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #next-btn, #prev-btn {
+        fill: white;
+        width: 3%;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0 0.5vw;
+    }
+    #next-btn:focus, #prev-btn:focus{
+        outline: none;
+    }
+    .prototypes{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        background: url('images/prototypes.png') no-repeat;
+        background-position: center;
+        background-size: 99%;
+        background-color: black;
+    }
+    .work-with-us{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        background: url('images/work-with-us.png') no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    /* FOOTER ----------------------------------------------------------------------------------------------*/
+    .subscribe-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2vh;
+    }
+    .subscribe-text{
+        color: white;
+        font-family: 'roboto condensed';
+        font-size: 1.5em;
+        margin: 0;
+    }
+    .subscribe-input{
+        min-width: 20vw;
+        height: 2em;
+        margin-bottom: 2vh;
+      }
+    .button-subscribe{
+        display: inline-block;
+    }
+    
 }
