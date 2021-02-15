@@ -443,12 +443,12 @@ function checkAnimation(){
 
 
 window.addEventListener('load', scrollingAnimations);
-window.addEventListener('resize', checkSize=>{
-  if (document.body.clientWidth <1025){
-  console.log(document.body.clientWidth)
-  window.location.reload()
-  }else{
-    return
-  }
-});
+// window.addEventListener('resize', checkSize=>{
+//   if (document.body.clientWidth <1025){
+//   console.log(document.body.clientWidth)
+//   window.location.reload()
+//   }else{
+//     return
+//   }
+// });
 
