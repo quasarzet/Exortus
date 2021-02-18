@@ -1,3 +1,13 @@
+@font-face {
+  font-family: andromeda;
+  src: url(fonts/Andromeda.ttf);
+}
+
+@font-face {
+  font-family: 'roboto condensed';
+  src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -27,14 +37,9 @@ body {
   padding-right: 2vw;
 }
 
-@font-face {
-  font-family: andromeda;
-  src: url(fonts/Andromeda.ttf);
-}
-
-@font-face {
-  font-family: 'roboto condensed';
-  src: url(fonts/RobotoCondensed-Regular.ttf);
+a:active, a:visited, a:link {
+  text-decoration: none;
+  color: white;
 }
 
 /* MAIN COLORS FOR THE WEBSITE---------------------------------------------------------------*/
@@ -270,7 +275,7 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 7vh;
-  background-image: url("images/small-images/small-landing.png");
+  background-image: url("images/landing.png");
   background-position: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -539,6 +544,12 @@ body {
   margin-top: 1vh;
   border-style: solid;
   border-color: white;
+}
+
+.pollution-impact-container {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 6;
 }
 
 .carbon-monoxide, .fine-particles, .ammonia {
@@ -1071,7 +1082,7 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    background: url("images/medium-images/medium-landing.png") no-repeat;
+    background: url("images/full-landing.png") no-repeat;
     background-position: center;
     background-size: cover;
     padding: 0;
@@ -1253,6 +1264,12 @@ body {
     font-size: 1.3em;
     padding: 0 5vw;
   }
+  .full-navigation li:hover {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+  }
   .full-message-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1422,6 +1439,16 @@ body {
     height: 60vh;
     color: white;
   }
+  .how-started:hover, .how-works:hover, .innovations:hover {
+    width: 35%;
+    height: 68%;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
   .how-started {
     -ms-grid-column: 1;
         grid-column-start: 1;
@@ -1442,6 +1469,10 @@ body {
     background-size: cover;
     background-position: center;
   }
+  .how-works-link, .how-started-link, .innovations-link, .impact-link, .prototypes-link, .work-with-us-link {
+    width: 100%;
+    height: 100%;
+  }
   .innovations {
     -ms-grid-column: 3;
         grid-column-start: 3;
@@ -1449,8 +1480,7 @@ body {
     background: url("images/innovations.png") no-repeat;
     background-color: black;
     background-size: cover;
-    background-position-x: center;
-    background-position-y: 2vh;
+    background-position: center;
   }
   /*IMPACT SECTION--------------------------------------------------------------------------------------*/
   .impact {
@@ -1699,8 +1729,6 @@ body {
             align-items: flex-start;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-  }
-  .full-news-container, .prototypes, .work-with-us {
     border-style: solid;
     border-color: #07484f;
     border-width: 5px;
@@ -1708,6 +1736,16 @@ body {
     width: 30vw;
     height: 60vh;
     color: white;
+  }
+  .prototypes:hover, .work-with-us:hover {
+    width: 35%;
+    height: 68%;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
   }
   .full-news-container {
     -ms-grid-column: 1;

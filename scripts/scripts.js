@@ -21,12 +21,14 @@ const lines = document.querySelectorAll(".scroll-line");
 const scrollText = document.querySelector(".scroll-line-text")
 const nextSectionButton = document.querySelector('.next-section-arrow');
 
-
+var scrollTop = document.body.scrollTop;
+var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+var progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
 // GIVES A BACKGROUND TO THE HEADER WHEN NAVIGATING BEYOND THE FIRST PAGE
 window.addEventListener('scroll', event=>{
-    let scrollTop = document.body.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+    // let scrollTop = document.body.scrollTop;
+    // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
     
     if (progress < 5){
         gsap.to(header,{background: 'none', duration: 1});
@@ -67,9 +69,9 @@ lines.forEach(line=>{
 // CHANGES THE TEXT BACK TO THE DEFAULT VALUE
 lines.forEach(line=>{
     line.addEventListener('mouseleave', ()=>{
-        let scrollTop = document.body.scrollTop;
-        let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+        // let scrollTop = document.body.scrollTop;
+        // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
         // UPDATES THE VALUE OF THE TEXT
         if(progress<=13){
             scrollText.textContent = 'Home';
@@ -97,9 +99,9 @@ nextSectionButton.addEventListener('click', ()=>{
         const thirdSection = document.querySelector('.impact');
         const fourthSection = document.querySelector('.full-fourth-section');
         const fifthSection = document.querySelector('.subscribe-container');
-        let scrollTop = document.body.scrollTop;
-        let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
+        // let scrollTop = document.body.scrollTop;
+        // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
         if(progress<=13){
             secondSection.scrollIntoView();
         }
@@ -303,9 +305,7 @@ button.addEventListener('click', showSnackbar);
 
 // //GSAP SCROLLING ANIMATIONS
 function scrollingAnimations(){
-
-let screenWidth = document.body.clientWidth;
-
+const screenWidth = document.body.clientWidth;
 if(screenWidth <= 1025){
 gsap.from(".how-started",{
   scrollTrigger: {
@@ -429,26 +429,30 @@ gsap.from(".work-with-us",{
     }
   });
 }
-
 }
 
-function checkAnimation(){
-      let scrollTop = document.body.scrollTop;
-      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
-      
-        scrollingAnimations();
- 
-}
-
-
+// LOADS THE ANIMATIONS ON LOAD
 window.addEventListener('load', scrollingAnimations);
-// window.addEventListener('resize', checkSize=>{
-//   if (document.body.clientWidth <1025){
-//   console.log(document.body.clientWidth)
-//   window.location.reload()
-//   }else{
-//     return
-//   }
-// });
 
+//REFRESH THE PAGE TO SWITCH BETWEEN SMALL AND BIG ANIMATIONS
+window.addEventListener('resize', ()=>{
+  if(document.body.clientWidth < 1025){
+    document.body.classList.add('small-animations');
+    if (document.body.classList.contains('big-animations')){
+        document.body.classList.remove('big-animations');
+        document.body.classList.add('small-animations');
+        window.location.reload();
+        console.log('running small animations');
+    }}
+    else{
+      if(document.body.clientWidth > 1025){
+        document.body.classList.add('big-animations');
+        if (document.body.classList.contains('small-animations')){
+          document.body.classList.remove('small-animations');
+          document.body.classList.add('big-animations');
+          window.location.reload();
+          console.log('running big animations');
+        }
+      }
+    }
+  });

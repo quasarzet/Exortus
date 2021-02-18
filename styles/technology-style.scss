@@ -155,7 +155,7 @@ body{
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-80vh;
+    left:-120vw;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -243,6 +243,11 @@ body{
 }
 
 /*TECHNOLOGY SECTION--------------------------------------------------------------------------*/
+.technology-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .technology-message{
     text-align: center;
     font-size: 1.3em;
@@ -377,10 +382,12 @@ a:active{
     padding: 0.3vw;
     margin: 0;
 }
+.full-navigation{
+    display: none;
+}
 
 
-@media all and (min-width: 500px) and (max-width: 1025px){
-
+@media all and (min-width: 500px) and (max-width: 1023px){
     .nav-link{
         font-size: 250%;
         line-height: 10vh;
@@ -398,4 +405,71 @@ a:active{
     .disclaimer, .legal-items{
         font-size: 110%;
     }
+}
+
+
+// MEDIA QUERY FOR DESKTOPS
+@media all and (min-width: 1024px){
+body{
+    padding: 0 10vw;
+}
+.overlay-container{
+    display: none;
+}
+.navbar{
+    display: none;
+}
+.overlay-change{
+    display: none;
+}
+.burger-menu{
+    display: none;
+}
+.burger-line{
+    display: none;
+}
+.navigation-line{
+    display: none;
+}
+.full-navigation{
+    display: inline-flex;
+}
+.full-navigation li{
+    display: inline-flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    list-style: none;
+    color: white;
+    font-family: 'roboto condensed';
+    font-size: 1.5em;
+    padding: 0 2vw;
+    margin-top: 8vh;
+}
+.full-navigation li:hover{
+    transform: scale(1.2);
+    transition-duration: 0.2s;
+}
+.division-line-title{
+    margin-top: 2vh;
+}
+.technology-author{
+    margin-left: 20vw;
+}
+.technology-content-container{
+    display: flex;
+    flex-direction: column;
+}
+.technology-content-container img{
+    width: 30%;
+}
+.technology-content-container p{
+    width: 30vw;
+    text-align: justify;
+}
+.subscribe-input{
+    min-width: 20vw;
+}
+#snackbar {
+    min-width: 20vw;
+}
 }

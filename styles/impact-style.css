@@ -67,6 +67,10 @@
   text-align: center;
 }
 
+.car-text, .tires-text, .brakes-text {
+  text-align: justify;
+}
+
 .full-header {
   display: none;
 }
@@ -82,9 +86,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -94,7 +97,7 @@
 }
 
 .quote-container {
-  width: 60vw;
+  min-width: 60vw;
   height: 40vh;
   color: white;
   font-family: 'roboto condensed';
@@ -618,7 +621,7 @@ a:active {
   }
 }
 
-@media all and (min-width: 349px) and (max-width: 1025px) {
+@media all and (min-width: 500px) and (max-width: 1025px) {
   .nav-link {
     font-size: 250%;
     line-height: 10vh;
@@ -680,8 +683,10 @@ a:active {
     padding: 0 2vw;
   }
   .full-navigation li:hover {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
   }
   .division-line-title {
     margin-top: 15vh;

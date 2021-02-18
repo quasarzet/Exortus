@@ -472,7 +472,8 @@ a:active{
         margin-top: 8vh;
     }
     .full-navigation li:hover{
-        transform: scale(1.1);
+        transform: scale(1.2);
+        transition-duration: 0.2s;
     }
     .division-line-title{
         margin-top: 2vh;
