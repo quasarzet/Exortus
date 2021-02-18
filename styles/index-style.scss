@@ -25,6 +25,7 @@ body{
     align-items: center;
     padding-left: 2vw;
     padding-right: 2vw;
+    overflow-x: hidden;
 }
 
 // REMOVES THE STYLE FROM LINKS
@@ -56,6 +57,7 @@ $colors:(
     background-repeat: no-repeat;
     border-style: solid;
     border-width: 4px;
+    border-radius: 3px;
     border-color: map-get($colors, border);
     font-family: 'roboto condensed';
 }
@@ -165,7 +167,7 @@ $font-size:(
     background-color: map-get($colors, background);
     position: absolute;
     top: 0;
-    left:-150vw;
+    left:-100vw;
     transition: left 0.5s ease-in-out;
     color: map-get($colors, text);
     overflow-x: hidden;
@@ -244,6 +246,7 @@ $font-size:(
 
 /* LANDING SECTION ----------------------------------------------------------------------------*/
 .landing{
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -551,8 +554,13 @@ $font-size:(
 }
 
 /* PROTOTYPES SECTION-----------------------------------------------------------------------*/
+.full-fourth-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .prototypes{
-    background-image: url('images/small-images/small-prototypes.png') no-repeat;
+    background: url('images/small-images/small-prototypes.png') no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -797,7 +805,7 @@ $font-size:(
 
 
 // TABLETS
-@media all and (min-width: 500px) and (max-width: 1025px){
+@media all and (min-width: 500px) and (max-width: 1024px){
     .full-navigation, .full-header, .button-full-landing-container, .button-full-landing{
         display: none;
     }
@@ -1323,7 +1331,6 @@ $font-size:(
         transition-duration: 0.3s;
         filter: brightness(120%);
     }
-
     .full-news-container{
         grid-column-start: 1;
         grid-column-end: 2;

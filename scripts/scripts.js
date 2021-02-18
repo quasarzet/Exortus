@@ -16,44 +16,59 @@ menuIcon.addEventListener('click', ()=>{
 
 
 // SCROLLING CONTROL---------------------------------------------------------------
+function scrollingControl(){
+//FINDS THE PERCENTAGE OF SCROLLING THROUGH THE PAGE
 const header = document.querySelector(".full-header");
 const lines = document.querySelectorAll(".scroll-line");
 const scrollText = document.querySelector(".scroll-line-text")
 const nextSectionButton = document.querySelector('.next-section-arrow');
+const firstSection = document.querySelector('.landing');
+const secondSection = document.querySelector('.full-second-section');
+const thirdSection = document.querySelector('.impact');
+const fourthSection = document.querySelector('.full-fourth-section');
+const fifthSection = document.querySelector('.subscribe-container');
+const progress = Math.ceil(((window.scrollY)/(document.body.scrollHeight - window.innerHeight)*100));
+let currentSection = '';
 
-var scrollTop = document.body.scrollTop;
-var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-var progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
-// GIVES A BACKGROUND TO THE HEADER WHEN NAVIGATING BEYOND THE FIRST PAGE
-window.addEventListener('scroll', event=>{
-    // let scrollTop = document.body.scrollTop;
-    // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
-    
-    if (progress < 5){
-        gsap.to(header,{background: 'none', duration: 1});
-    }else{
-        gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
-    }
-    if(progress<=13){
-      scrollText.textContent = 'Home';
-    }
-    if(progress>=14){
-        scrollText.textContent = 'The Technology';
-    }
-    if(progress>=42){
-        scrollText.textContent = 'Impact';
-    }
-    if(progress>=70){
-        scrollText.textContent = 'Opportunities';
-    }
-    if(progress>=93){
-        scrollText.textContent = 'Subscribe';
-    }
-});
+switch(true){
+  case (progress<22):
+    scrollText.textContent = 'Home';
+    // CHANGES THE BACKGROUND COLOR OF THE HEADER WHILE AT THE FIRST SECTION
+    gsap.to(header,{background: 'none', duration: 1.5});
+    currentSection = 'Home';
+    nextSectionButton.onclick = ()=>{secondSection.scrollIntoView()};
+    break;
+  case (progress>12 && progress<50):
+    scrollText.textContent = 'The Technology';
+    // APPLIES BACKGROUND COLOR TO THE HEADER WHEN LEAVING THE FIRST SECTION
+    gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
+    currentSection = 'The Technology';
+    nextSectionButton.onclick = ()=>{thirdSection.scrollIntoView()};
+    break;
+  case (progress>49 && progress<80):
+    scrollText.textContent = 'Impact';
+    gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
+    currentSection = 'Impact';
+    nextSectionButton.onclick = ()=>{fourthSection.scrollIntoView()};
+    break;
+  case (progress>79 && progress<99):
+    scrollText.textContent = 'Opportunities';
+    gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
+    currentSection = 'Opportunities';
+    nextSectionButton.onclick = ()=>{fifthSection.scrollIntoView()};
+    break;
+  case (progress>99):
+    scrollText.textContent = 'Subscribe';
+    gsap.to(header,{backgroundColor: "rgba(0,0,0,0.9)", duration: 0.7});
+    currentSection = 'Subscribe';
+    nextSectionButton.onclick = ()=>{firstSection.scrollIntoView()};
+    break;
+  default:
+    console.log("Where was I?");
+    break;
+}
 
-
-// CHANGES THE TEXT CONTENT OF THE SECTION INDICATOR
+// SHOWS THE NAME OF THE TARGET SECTION WHEN HOVERING
 lines.forEach(line=>{
     line.addEventListener('mouseenter', ()=>{
         const sections = {
@@ -65,59 +80,15 @@ lines.forEach(line=>{
         }
     scrollText.textContent = `${sections[line.id]}`;
 })});
-
-// CHANGES THE TEXT BACK TO THE DEFAULT VALUE
+// RETURNS THE NAME OF THE SECTION WHEN HOVERING ENDS
 lines.forEach(line=>{
-    line.addEventListener('mouseleave', ()=>{
-        // let scrollTop = document.body.scrollTop;
-        // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
-        // UPDATES THE VALUE OF THE TEXT
-        if(progress<=13){
-            scrollText.textContent = 'Home';
-        }
-        if(progress>=14){
-            scrollText.textContent = 'The Technology';
-        }
-        if(progress>=42){
-            scrollText.textContent = 'Impact';
-        }
-        if(progress>=70){
-            scrollText.textContent = 'Opportunities';
-        }
-        if(progress>=93){
-            scrollText.textContent = 'Subscribe';
-        }
+  line.addEventListener('mouseleave', ()=>{
+    scrollText.textContent = currentSection;
 })});
-
-
-// JUMPS TO THE NEXT SECTION BELOW AND RESTARTS AT THE END
-nextSectionButton.addEventListener('click', ()=>{
-  // SECTIONS OF THE WEBSITE
-        const firstSection = document.querySelector('.landing');
-        const secondSection = document.querySelector('.full-second-section');
-        const thirdSection = document.querySelector('.impact');
-        const fourthSection = document.querySelector('.full-fourth-section');
-        const fifthSection = document.querySelector('.subscribe-container');
-        // let scrollTop = document.body.scrollTop;
-        // let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        // let progress = Math.ceil((100 * scrollTop / scrollHeight)/12);
-        if(progress<=13){
-            secondSection.scrollIntoView();
-        }
-        if(progress>=14){
-            thirdSection.scrollIntoView();
-        }
-        if(progress>=42){
-            fourthSection.scrollIntoView();
-        }
-        if(progress>=70){
-            fifthSection.scrollIntoView();
-        }
-        if(progress>=90){
-            firstSection.scrollIntoView();
-        }
-})
+};
+// EVENT LISTENERS WHEN THE PAGE LOADS AND EVERYTIME A SCROLL HAPPEN
+window.addEventListener('scroll', scrollingControl);
+window.addEventListener('load', scrollingControl);
 
 
 //NEWS SLIDER--------------------------------------------
@@ -306,7 +277,7 @@ button.addEventListener('click', showSnackbar);
 // //GSAP SCROLLING ANIMATIONS
 function scrollingAnimations(){
 const screenWidth = document.body.clientWidth;
-if(screenWidth <= 1025){
+if(screenWidth < 1025){
 gsap.from(".how-started",{
   scrollTrigger: {
     trigger: ".how-started",
@@ -442,7 +413,6 @@ window.addEventListener('resize', ()=>{
         document.body.classList.remove('big-animations');
         document.body.classList.add('small-animations');
         window.location.reload();
-        console.log('running small animations');
     }}
     else{
       if(document.body.clientWidth > 1025){
@@ -451,8 +421,14 @@ window.addEventListener('resize', ()=>{
           document.body.classList.remove('small-animations');
           document.body.classList.add('big-animations');
           window.location.reload();
-          console.log('running big animations');
         }
       }
     }
   });
+
+
+// //FINDS THE PERCENTAGE OF SCROLLING THROUGH THE PAGE
+// window.onscroll = function getScroll(){
+//   let percentage = Math.ceil(((window.scrollY)/(document.body.scrollHeight - window.innerHeight)*100));
+//   console.log(percentage)
+// }
